@@ -5,7 +5,7 @@
 			"maintainer": "Microchip",
 			"websiteURL": "https://github.com/bobcmartin/microchip",
 			"email": "bob.martin@microchip.com",
-			"help": {"online": "https://github.com/microchip"},
+			
 			"platforms": [
 				{
 					"name": "AVRCore (AVR Dx/Ex) ",
