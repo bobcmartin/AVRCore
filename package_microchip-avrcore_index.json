@@ -5,9 +5,7 @@
 			"maintainer": "Microchip",
 			"websiteURL": "https://github.com/bobcmartin/microchip",
 			"email": "bob.martin@microchip.com",
-			"help": {
-				"online": "https://github.com/microchip"
-			},
+			"help": {"online": "https://github.com/microchip"},
 			"platforms": [
 				{
 					"name": "AVRCore (AVR Dx/Ex) ",
@@ -50,7 +48,7 @@
 							"checksum": "SHA-256:a17332b8274e22cc4ae9c146b7df463f2b3922727da06708e6bdaa5d9476f366",
 							"host": "i686-mingw32",
 							"archiveFileName": "avr-gcc-7.3.1-oct2024-1.05",
-							"url": "https://github.com/bobcmartin/avr-gcc-7.3.1-oct2024/archive/refs/tags/v1.05.zip
+							"url": "https://github.com/bobcmartin/avr-gcc-7.3.1-oct2024/archive/refs/tags/v1.05.zip"
 						}
 					]
 				}
