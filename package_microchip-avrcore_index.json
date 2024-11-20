@@ -3,7 +3,7 @@
 		{
 			"name": "microchip",
 			"maintainer": "Microchip",
-			"websiteURL": "https://github.com/bobcmartin/microchip",
+			"websiteURL": "https://github.com/bobcmartin/AVRCore",
 			"email": "bob.martin@microchip.com",
 			
 			"platforms": [
