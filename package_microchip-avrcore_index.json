@@ -12,12 +12,12 @@
 				{
 					"name": "AVR Dx/Ex Curiosity Nano Boards ",
 					"architecture": "megaavr",
-					"version": "1.05",
+					"version": "1.00",
 					"category": "Contributed",
-					"url": "https://github.com/bobcmartin/microchip/archive/refs/tags/v1.05.zip",
-					"archiveFileName": "v1.05",
-					"checksum": "SHA-256: 3451a32bf25dbb23afa0f20fe05b08b1e71ddedbe7d6f294737d4bceb0f1819e",
-					"size":"116179261",
+					"url": "https://github.com/bobcmartin/AVRCore/releases/download/v1.00/AVRCore-1.00.zip",
+					"archiveFileName": "AVRCore-1.00.zip",
+					"checksum": "SHA-256:f2d9bb374585fbab35e50df7ab801325daf6ad5dce1625f59094808c1c74124e ",
+					"size":"8339445",
 					"boards": [
 						{
 							"name": "AVR128DA48 Curiosity Nano"
