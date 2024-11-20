@@ -14,8 +14,8 @@
 					"category": "Contributed",
 					"url": "https://github.com/bobcmartin/AVRCore/releases/download/v1.00/AVRCore-1.00.zip",
 					"archiveFileName": "AVRCore-1.00.zip",
-					"checksum": "912064e3ef1178edf597644b6c69c36796f9a97c8bc18fc80e155a135442e2c2",
-					"size":"3917223",
+					"checksum": "75bd0cee97bd9379e560d669176cc1accddfd4a7f4c41c28cab70acd854f748c",
+					"size":"3911449",
 					"boards": [
 						{
 							"name": "AVR128DA48 Curiosity Nano"
