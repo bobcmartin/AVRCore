@@ -1,0 +1,30 @@
+#######################################
+# Syntax Coloring Map For Wire
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+start	KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+REG_OFF	LITERAL1
+REG_1V2	LITERAL1
+REG_1V5	LITERAL1
+REG_1V8	LITERAL1
+REG_2V5	LITERAL1
+REG_3V0	LITERAL1
+REG_3V1	LITERAL1
+REG_3V3	LITERAL1
+REG_4V0	LITERAL1
+REG_5V0	LITERAL1
