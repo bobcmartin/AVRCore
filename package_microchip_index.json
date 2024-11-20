@@ -2,7 +2,7 @@
 	"packages": [
 		{
 			"name": "microchip",
-			"maintainer": "Microchip",
+			"maintainer": "microchip",
 			"websiteURL": "https://github.com/bobcmartin/AVRCore",
 			"email": "bob.martin@microchip.com",
 			
