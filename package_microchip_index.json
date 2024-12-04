@@ -44,11 +44,11 @@
 					"version": "7.3.0-atmel3.6.1",
 					"systems": [
 						{
-							"size": "57878386",
-							"checksum": "SHA-256:a17332b8274e22cc4ae9c146b7df463f2b3922727da06708e6bdaa5d9476f366",
+							"size": "55294593",
+							"checksum": "SHA-256:7dbfcb0127697465ae9be3583f645957c9087eb202a6c4216ed295cfb7c584f8",
 							"host": "i686-mingw32",
-							"archiveFileName": "avr-gcc-7.3.1-oct2024-1.05",
-							"url": "https://github.com/bobcmartin/avr-gcc-7.3.1-oct2024/archive/refs/tags/v1.05.zip"
+							"archiveFileName": "7.3.0-atmel3.6.1.zip",
+							"url": "https://github.com/bobcmartin/avr-gcc-7.3.1-oct2024/releases/download/v1.05/7.3.0-atmel3.6.1.zip"
 						}
 					]
 				}
