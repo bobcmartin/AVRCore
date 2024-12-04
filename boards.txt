@@ -1,9 +1,14 @@
 menu.chip=Chip
+menu.wiremode=I2C Modes
+
 
 ##### BOARD NAMES #####
 
 avrda.name=AVR128DA48 Curiosity Nano
 avrdb.name=AVR128DB48 Curiosity Nano
+
+
+
 
 #############################
 # Default settings AVR-DA48 #
@@ -13,7 +18,7 @@ avrdb.name=AVR128DB48 Curiosity Nano
 avrda.upload.tool=avrdude
 avrda.upload.prog_interlock=
 avrda.build.board=avrda
-avrda.build.core=dxcore
+avrda.build.core=avrcore
 avrda.build.text_section_start=.text=0x0
 avrda.build.export_merged_output=false
 avrda.build.mcupostfix=
@@ -46,6 +51,9 @@ avrda.menu.chip.128DA48.build.variant=48pin-standard
 avrda.build.f_cpu=24000000L
 avrda.build.speed=24
 
+avrdb.build.flmapabr=.fld
+
+
 # BrownOut Detection (BOD) Options
 avrda.bootloader.bodlevbits=000
 
@@ -58,6 +66,10 @@ avrda.bootloader.resetpinbits=10
 # Startup time options 
 avrda.bootloader.SYSCFG1=0x04
 
+avrda.menu.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION3
+avrda.build.flmapabr=.fld
+avrda.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION3
+
 ################################
 #  AVR-DB Settings             #
 ################################
@@ -67,10 +79,10 @@ avrda.bootloader.SYSCFG1=0x04
 avrdb.upload.tool=avrdude
 avrdb.upload.prog_interlock=
 avrdb.build.board=avrdb
-avrdb.build.core=dxcore
+avrdb.build.core=avrcore
 avrdb.build.f_cpu={build.speed}000000L
 avrdb.build.text_section_start=.text=0x0
-avrdb.build.extra_flags= {bootloader.appspm}
+#avrdb.build.extra_flags= {bootloader.appspm}
 avrdb.build.export_merged_output=false
 avrdb.build.mcupostfix=
 avrdb.build.printf=
@@ -129,6 +141,7 @@ avrdb.bootloader.resetpinbits=10
 # attachInterrupt Mode                   
 avrdb.build.attachmode=-DCORE_ATTACH_ALL
 
+avrdb.build.millistimer=B2
 
 # MVIO menu                              
 avrdb.bootloader.mviobits=01
@@ -138,6 +151,9 @@ avrdb.bootloader.mviobits=01
 # Default set to 8 ms                 
 avrdb.bootloader.sutbits=100
 
+avrdb.build.flmapabr=.fld
+avrdb.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION3
+
 # SPM            
 avrdb.bootloader.appspm=
 avrdb.bootloader.BOOTSIZE=0x00
@@ -145,21 +161,21 @@ avrdb.bootloader.BOOTSIZE=0x00
 ############################
 # Extra options menu setup #
 ############################
-menu.extras=Options
 
-##### 1x Wire, No Float #####
-avrda.menu.extras.extra1=1 Wire, Printf float none
-avrda.menu.extras.extra1.build.wire.mode=MORS_SINGLE
-avrda.menu.extras.extra1.build.wireabr=.wO
 
-##### 2x Wire, No Float #####
-avrda.menu.extras.extra2=2 Wire, Printf float none
-avrda.menu.extras.extra2.build.wire.mode=MORS_BOTH
+##### single I2C #####
+avrda.menu.wiremode.single=Single
+avrda.menu.wiremode.single.build.wiremode=MORS_SINGLE
+avrda.menu.wiremode.single.build.wireabr=.wO
+
+##### dual I2C  #####
+avrda.menu.wiremode.=2 Wire, Printf float none
+avrda.menu.extras.extra2.build.wiremode=MORS_BOTH
 avrda.menu.extras.extra2.build.wireabr=.wO2
 
 ##### 1x Wire, Minimal Float #####
 avrda.menu.extras.extra3=1 Wire, Printf float min
-avrda.menu.extras.extra3.build.wire.mode=MORS_SINGLE
+avrda.menu.extras.extra3.build.wiremode=MORS_SINGLE
 avrda.menu.extras.extra3.build.wireabr=.wO
 avrda.menu.extras.extra3.build.printf=-Wl,-u,vfprintf -lprintf_min
 avrda.menu.extras.extra3.build.printfabr=.pfM

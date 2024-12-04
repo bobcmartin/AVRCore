@@ -1,22 +1,22 @@
 #######################################
-# DxCore platform definition          #
-#                                     #
+# AVRCore platform definition         #
+# borrowed from DxCore                #
 # github.com/SpenceKonde/DxCore       #
 #######################################
 
-name=DxCore
+name=AVRCore
 versionnum.major=1
 versionnum.minor=5
 versionnum.patch=11
 versionnum.postfix=
 versionnum.released=1
 
-version=${DOWNLOADED_FILE#"v"}
+# version=${DOWNLOADED_FILE#"v"}
 #####################
 # Stupid workaround #
 # for IDE bug       #
 #####################
-version=${DOWNLOADED_FILE#"v"}
+# version=${DOWNLOADED_FILE#"v"}
 
 build.versiondefines=-DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} -DDXCORE="{version}" -DDXCORE_MAJOR={versionnum.major}UL -DDXCORE_MINOR={versionnum.minor}UL -DDXCORE_PATCH={versionnum.patch}UL -DDXCORE_RELEASED={versionnum.released}
 
