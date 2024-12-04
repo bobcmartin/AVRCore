@@ -26,7 +26,7 @@
 					],
 					"toolsDependencies": [
 						{
-							"packager": "AVRCore (AVR Dx/Ex)",
+							"packager": "microchip",
 							"name": "avr-gcc",
 							"version": "7.3.0-atmel3.6.1"
 						},
@@ -41,7 +41,7 @@
 			"tools": [
 				{
 					"name": "avr-gcc",
-					"version": "avr-gcc-7.3.1",
+					"version": "7.3.0-atmel3.6.1",
 					"systems": [
 						{
 							"size": "57878386",
