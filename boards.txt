@@ -1,20 +1,16 @@
 menu.chip=Chip
-menu.wiremode=I2C Modes
-
+menu.wiremode=Wire (Wire.h/I2C) Library mode
 
 ##### BOARD NAMES #####
 
 avrda.name=AVR128DA48 Curiosity Nano
 avrdb.name=AVR128DB48 Curiosity Nano
-avrdd.name=AVR128DB32 Curisoity Nano
 
-
-
-
-
-#############################
-# Default settings AVR-DA48 #
-#############################
+#############################################################################################
+#                                                                                           #
+#                               AVRDQ                                                       #
+#                                                                                           #
+#############################################################################################
 
 # Bootloading parameters and fuses
 avrda.upload.tool=avrdude
@@ -43,18 +39,33 @@ avrda.bootloader.appspm=
 avrda.bootloader.BOOTSIZE=0x00
 
 # Chip (memory and pincount) 
-avrda.menu.chip.128DA48=AVR128DA48
+avrda.menu.chip.128DA48=AVR128DA48 (default)
 avrda.menu.chip.128DA48.build.mcu=avr128da48
 avrda.menu.chip.128DA48.upload.maximum_size=131072
 avrda.menu.chip.128DA48.upload.maximum_data_size=16384
 avrda.menu.chip.128DA48.build.variant=48pin-standard
 
+avrda.menu.wiremode.mors=1x Wire, Client or Host
+avrda.menu.wiremode.mors.build.wiremode=MORS_SINGLE
+avrda.menu.wiremode.mors.build.wireabr=.wO
+avrda.menu.wiremode.mands=1x Wire, Client and Host
+avrda.menu.wiremode.mands.build.wiremode=MANDS_SINGLE
+avrda.menu.wiremode.mands.build.wireabr=.wA
+avrda.menu.wiremode.mors2=2x Wire, Client or Host (32 pin+)
+avrda.menu.wiremode.mors2.build.wiremode=MORS_BOTH
+avrda.menu.wiremode.mors2.build.wireabr=.wO2
+avrda.menu.wiremode.mands2=2x Wire Client and Host
+avrda.menu.wiremode.mands2.build.wiremode=MANDS_BOTH
+avrda.menu.wiremode.mands2.build.wireabr=.wA2
+
 # Clock Speed + Source options
+# 24 MHz internal
 avrda.build.f_cpu=24000000L
 avrda.build.speed=24
+avrda.build.clocksource=0
 
-avrdb.build.flmapabr=.fld
-
+#millis timer
+avrda.build.millistimer=B2
 
 # BrownOut Detection (BOD) Options
 avrda.bootloader.bodlevbits=000
@@ -68,13 +79,18 @@ avrda.bootloader.resetpinbits=10
 # Startup time options 
 avrda.bootloader.SYSCFG1=0x04
 
-avrda.menu.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION3
-avrda.build.flmapabr=.fld
-avrda.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION3
 
-################################
-#  AVR-DB Settings             #
-################################
+avrda.build.attachmode=-DCORE_ATTACH_ALL
+
+#use section 1 for avrdd
+avrda.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION3
+avrda.build.flmapabr=.fld
+
+###################################################################################################
+#                                                                                                 #
+#                                       AVR-DB Settings                                           #
+#                                                                                                 #
+###################################################################################################
 
 
 # Parameters and defaults for DB parts 
@@ -84,7 +100,7 @@ avrdb.build.board=avrdb
 avrdb.build.core=avrcore
 avrdb.build.f_cpu={build.speed}000000L
 avrdb.build.text_section_start=.text=0x0
-#avrdb.build.extra_flags= {bootloader.appspm}
+avrdb.build.extra_flags= {bootloader.appspm}
 avrdb.build.export_merged_output=false
 avrdb.build.mcupostfix=
 avrdb.build.printf=
@@ -118,17 +134,33 @@ avrdb.build.appspmabr=.spm{bootloader.CODESIZE}
 # AVR-DB submenu options                     
 
 # Chip (memory and pincount)             
-avrdb.menu.chip.avr128db48=AVR128DB48
+avrdb.menu.chip.avr128db48=AVR128DB48 (default)
 avrdb.menu.chip.avr128db48.build.mcu=avr128db48
 avrdb.menu.chip.avr128db48.upload.maximum_size=131072
 avrdb.menu.chip.avr128db48.upload.maximum_data_size=16384
 avrdb.menu.chip.avr128db48.build.variant=48pin-standard
 
+avrda.menu.wiremode.mors=1x Wire, Client or Host
+avrda.menu.wiremode.mors.build.wiremode=MORS_SINGLE
+avrda.menu.wiremode.mors.build.wireabr=.wO
+avrda.menu.wiremode.mands=1x Wire, Client and Host
+avrda.menu.wiremode.mands.build.wiremode=MANDS_SINGLE
+avrda.menu.wiremode.mands.build.wireabr=.wA
+avrda.menu.wiremode.mors2=2x Wire, Client or Host (32 pin+)
+avrda.menu.wiremode.mors2.build.wiremode=MORS_BOTH
+avrda.menu.wiremode.mors2.build.wireabr=.wO2
+avrda.menu.wiremode.mands2=2x Wire Client and Host
+avrda.menu.wiremode.mands2.build.wiremode=MANDS_BOTH
+avrda.menu.wiremode.mands2.build.wireabr=.wA2
 
 # Clock Speed + Source options
 avrdb.build.f_cpu=24000000L
 avrdb.build.speed=24
 avrdb.build.clocksource=0
+
+#millis timer
+avrdb.build.millistimer=B2
+
 
 # BrownOut Detection (BOD) Options
 avrdb.bootloader.bodlevbits=000
@@ -143,7 +175,9 @@ avrdb.bootloader.resetpinbits=10
 # attachInterrupt Mode                   
 avrdb.build.attachmode=-DCORE_ATTACH_ALL
 
-avrdb.build.millistimer=B2
+avrdb.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION3
+avrdb.build.flmapabr=.fld
+
 
 # MVIO menu                              
 avrdb.bootloader.mviobits=01
@@ -153,95 +187,9 @@ avrdb.bootloader.mviobits=01
 # Default set to 8 ms                 
 avrdb.bootloader.sutbits=100
 
-avrdb.build.flmapabr=.fld
-avrdb.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION3
-
 # SPM            
 avrdb.bootloader.appspm=
 avrdb.bootloader.BOOTSIZE=0x00
 
-############################
-# Extra options menu setup #
-############################
-
-
-##### single I2C #####
-avrda.menu.wiremode.single=Single
-avrda.menu.wiremode.single.build.wiremode=MORS_SINGLE
-avrda.menu.wiremode.single.build.wireabr=.wO
-
-##### dual I2C  #####
-avrda.menu.wiremode.=2 Wire, Printf float none
-avrda.menu.extras.extra2.build.wiremode=MORS_BOTH
-avrda.menu.extras.extra2.build.wireabr=.wO2
-
-##### 1x Wire, Minimal Float #####
-avrda.menu.extras.extra3=1 Wire, Printf float min
-avrda.menu.extras.extra3.build.wiremode=MORS_SINGLE
-avrda.menu.extras.extra3.build.wireabr=.wO
-avrda.menu.extras.extra3.build.printf=-Wl,-u,vfprintf -lprintf_min
-avrda.menu.extras.extra3.build.printfabr=.pfM
-
-##### 2x Wire, Minimal Float #####
-avrda.menu.extras.extra4=2 Wire, Printf float min
-avrda.menu.extras.extra4.build.wire.mode=MORS_BOTH
-avrda.menu.extras.extra4.build.wireabr=.wO2
-avrda.menu.extras.extra4.build.printf=-Wl,-u,vfprintf -lprintf_min
-avrda.menu.extras.extra4.build.printfabr=.pfM
-
-
-##### 1x Wire, Full Float #####
-avrda.menu.extras.extra5=1 Wire, Printf float full
-avrda.menu.extras.extra5.build.wire.mode=MORS_SINGLE
-avrda.menu.extras.extra5.build.wireabr=.wO
-avrda.menu.extras.extra5.build.printf=-Wl,-u,vfprintf -lprintf_flt
-avrda.menu.extras.extra5.build.printfabr=.pfF
-
-##### 2x Wire, Full Float #####
-avrda.menu.extras.extra6=2 Wire, Printf float full
-avrda.menu.extras.extra6.build.wire.mode=MORS_BOTH
-avrda.menu.extras.extra6.build.wireabr=.wO2
-avrda.menu.extras.extra6.build.printf=-Wl,-u,vfprintf -lprintf_flt
-avrda.menu.extras.extra6.build.printfabr=.pfF
-
-##### DB48 extra options menu setup #####
-
-##### 1x Wire, No Float #####
-avrdb.menu.extras.extra1=1 Wire, Printf float none
-avrdb.menu.extras.extra1.build.wire.mode=MORS_SINGLE
-avrdb.menu.extras.extra1.build.wireabr=.wO
-
-##### 2x Wire, No Float #####
-avrdb.menu.extras.extra2=2 Wire, Printf float none
-avrdb.menu.extras.extra2.build.wire.mode=MORS_BOTH
-avrdb.menu.extras.extra2.build.wireabr=.wO2
-
-##### 1x Wire, Minimal Float #####
-avrdb.menu.extras.extra3=1 Wire, Printf float min
-avrdb.menu.extras.extra3.build.wire.mode=MORS_SINGLE
-avrdb.menu.extras.extra3.build.wireabr=.wO
-avrdb.menu.extras.extra3.build.printf=-Wl,-u,vfprintf -lprintf_min
-avrdb.menu.extras.extra3.build.printfabr=.pfM
-
-##### 2x Wire, Minimal Float #####
-avrdb.menu.extras.extra4=2 Wire, Printf float min
-avrdb.menu.extras.extra4.build.wire.mode=MORS_BOTH
-avrdb.menu.extras.extra4.build.wireabr=.wO2
-avrdb.menu.extras.extra4.build.printf=-Wl,-u,vfprintf -lprintf_min
-avrdb.menu.extras.extra4.build.printfabr=.pfM
-
-##### 1x Wire, Full Float #####
-avrdb.menu.extras.extra5=1x Wire, Printf float full
-avrdb.menu.extras.extra5.build.wire.mode=MORS_SINGLE
-avrdb.menu.extras.extra5.build.wireabr=.wO
-avrdb.menu.extras.extra5.build.printf=-Wl,-u,vfprintf -lprintf_flt
-avrdb.menu.extras.extra5.build.printfabr=.pfF
-
-##### 2x Wire, Full Float #####
-avrdb.menu.extras.extra6=2x Wire, Printf float full 
-avrdb.menu.extras.extra6.build.wire.mode=MORS_BOTH
-avrdb.menu.extras.extra6.build.wireabr=.wO2
-avrdb.menu.extras.extra6.build.printf=-Wl,-u,vfprintf -lprintf_flt
-avrdb.menu.extras.extra6.build.printfabr=.pfF
 
 
