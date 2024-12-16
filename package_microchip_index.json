@@ -22,7 +22,18 @@
 						},
 						{
 							"name": "AVR128DB48 Curiosity Nano"
+						},
+
+						{
+							"name": "AVR64DD32 Curiosity Nano"
+						},
+
+						{
+							"name": "AVR64DU32 Curiosity Nano"
 						}
+
+
+
 					],
 					"toolsDependencies": [
 						{
