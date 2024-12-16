@@ -6,6 +6,8 @@ menu.wiremode=I2C Modes
 
 avrda.name=AVR128DA48 Curiosity Nano
 avrdb.name=AVR128DB48 Curiosity Nano
+avrdd.name=AVR128DB32 Curisoity Nano
+
 
 
 
