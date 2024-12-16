@@ -5,10 +5,13 @@ menu.wiremode=Wire (Wire.h/I2C) Library mode
 
 avrda.name=AVR128DA48 Curiosity Nano
 avrdb.name=AVR128DB48 Curiosity Nano
+avrdd.name=AVR64DD32 Curiosity Nano
+avrdu.name=AVR64DU48 Curiosity Nano
+
 
 #############################################################################################
 #                                                                                           #
-#                               AVRDQ                                                       #
+#                               AVRDA                                                       #
 #                                                                                           #
 #############################################################################################
 
