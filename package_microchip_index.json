@@ -14,7 +14,7 @@
 					"category": "Contributed",
 					"url": "https://github.com/bobcmartin/AVRCore/releases/download/v1.00/AVRCore-1.0.zip",
 					"archiveFileName": "AVRCore-1.0.zip",
-					"checksum": "SHA-256:251f4da1683ac6c084ec9829181dfd1ef5a04fe96df4cec695571179057be269",
+					"checksum": "SHA-256:c9e49bf0ac584c885b0883e4ac1c42833b8d6d2c6504ec324da9d845a3c5a5d6",
 					"size":"3911383",
 					"boards": [
 						{
