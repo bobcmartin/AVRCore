@@ -1,55 +1,65 @@
 /*
 
-    analogRead functions for 
+    functions for 
     AVR DA, AVR DB and AVR DD devices.
     All ADC blocks are the same
 
-    Sept 2024 // bob martin
-
+    Sept 2024
+    core code extracted from DxCore / Spence Konde
+    
+    avrcore v1.x
+    bob martin
 
 */ 
 
 
-
-
-
+#include "Arduino.h"
 #include "wiring_private.h"
 #include "util/delay.h"
 #include "adc_Dx.h"         // config inits for ADC0
+#include <avr/pgmspace.h>
+
 
 
 ADC0_config_t adc_config;
 
 
 #ifndef F_CPU
-  #error "F_CPU not defined. F_CPU must always be defined as the clock frequency in Hz"
+  #error "F_CPU not defined."
 #endif
+
 #ifndef CLOCK_SOURCE
-  #error "CLOCK_SOURCE not defined. Must be 0 for internal, 1 for crystal, or 2 for external clock"
+  #error "CLOCK_SOURCE not defined."
 #endif
  
-#define __AVR_DA__ 1
+// #define __AVR_DA__ 
+
+#if defined(__AVR_DX__)
+
+  // #pragma message "Using DA, DB or DD ADC block"
+
+void analogReference(uint8_t mode) 
+{
+  check_valid_analog_ref(mode);
+  if (mode < 7 && mode != 4) {
+    VREF.ADC0REF = (VREF.ADC0REF & ~(VREF_REFSEL_gm))|(mode);
+  }
+}
 
 
-// #if defined ((__AVR_DA__) || (__AVR_DB__) || (__AVR_DD__))
-#pragma message "Using DA, DB or DD ADC block"
- 
- 
- void init_ADC0(void) 
+void init_ADC0(void) 
   {
     ADC_t* pADC;
-    // _fastPtr_d(pADC, &ADC0);
    
+   
+    pADC = &ADC0;
+    
     adc_config.init_delay = 2;
     adc_config.left_adjust = false;
     adc_config.mode = false;          // single ended mode
 
-    
-
-
-
-
-
+    analogReference(VDD);       
+   
     #if F_CPU >= 24000000
         pADC->CTRLC = ADC_PRESC_DIV20_gc; // 1.2 @ 24, 1.25 @ 25, 1.4 @ 28  MHz
       #elif F_CPU >= 20000000
@@ -60,82 +70,95 @@ ADC0_config_t adc_config;
         pADC->CTRLC = ADC_PRESC_DIV8_gc;  // 1-1.499 between 8 and 11.99 MHz
       #elif F_CPU >= 4000000
         pADC->CTRLC = ADC_PRESC_DIV4_gc;  // 1 MHz
-      #else  // 1 MHz / 2 = 500 kHz - the lowest setting
-        pADC->CTRLC = ADC_PRESC_DIV2_gc;
+      #else                              
+        pADC->CTRLC = ADC_PRESC_DIV2_gc;   // 1 MHz / 2 = 500 kHz
       #endif
-      pADC->SAMPCTRL = 14; // 16 ADC clock sampling time - should be about the same amount of *time* as originally?
       
-      pADC->CTRLD = ADC_INITDLY_DLY64_gc; // VREF can take 50uS to become ready, and we're running the ADC clock
-      // at around 1 MHz, so we want 64 ADC clocks when we start up a new reference so we don't get bad readings at first
+      // 16 ADC clock sampling time 
+      pADC->SAMPCTRL = 14; 
+      // VREF init delay
+      pADC->CTRLD = ADC_INITDLY_DLY64_gc; 
+     
       /* Enable ADC */
       pADC->CTRLA = ADC_ENABLE_bm | ADC_RESSEL_10BIT_gc;
-      // start at 10 bit for compatibuility with existing code.
-
+      
       #if (defined(__AVR_DA__) && (!defined(NO_ADC_WORKAROUND)))
         // That may become defined when DA-series silicon is available with the fix
         pADC->MUXPOS = 0x40;
         pADC->COMMAND = 0x01;
         pADC->COMMAND = 0x02;
       #endif
+  } // end init_ADC0
 
 
-int16_t analogRead(uint8_t pin) 
-{
-    
-    check_valid_analog_pin(pin);
-    
-    if (pin < 0x80)
-     {
-              pin = digitalPinToAnalogInput(pin);
-    } else {
-      pin &= 0x3F;
-    }
-    
+int16_t analogRead(uint8_t pin)
+ {
+  check_valid_analog_pin(pin);
+  if (pin < 0x80) {
+    pin = digitalPinToAnalogInput(pin);
+    if (pin == NOT_A_PIN) {
       return ADC_ERROR_BAD_PIN_OR_CHANNEL;
     }
-    
-    
-    ADC0.MUXPOS = pin;    
-    uint8_t command = (_analog_options & 0x0F) > 8 ? 0x11 : 0x01;
-    /* Start conversion */
-    ADC0.COMMAND = command;
-
-    /* Wait for result ready */
-    while (!(ADC0.INTFLAGS & ADC_RESRDY_bm));
-    // if it's 10 bit compatibility mode, have to rightshift twice.
-    if ((_analog_options & 0x0F) == 10) {
-      int16_t temp = ADC0.RESULT;
-      temp >>= 2;
-      return temp;
-    }
-    return ADC0.RESULT;
   }
 
+  /* Select channel */
+  ADC0.MUXPOS = ((pin & 0x7F) << ADC_MUXPOS_gp);
 
-int analogReadDiff(uint8_t pin_pos,uint8_t pin_neg)
-{
-  
-    check_valid_analog_pin(pin_pin);
+  /* Start conversion */
+  ADC0.COMMAND = ADC_STCONV_bm;
 
+  /* Wait for result ready */
+  while(!(ADC0.INTFLAGS & ADC_RESRDY_bm));
 
-
-
-
+  #if (defined(__AVR_DA__) && (!defined(NO_ADC_WORKAROUND)))
+    // That may become defined when DA-series silicon is available with the fix
+    ADC0.MUXPOS = 0x40;
+  #endif
+  return ADC0.RES;
 }
 
 
-/*
-
-#else
-#pragma message "not using AVR DA, DB or DD adc block"
-  void __attribute__((weak)) init_ADC0() 
-    {
-
-      return();
+inline __attribute__((always_inline)) void check_valid_negative_pin(uint8_t pin) {
+  if(__builtin_constant_p(pin)) {
+    if (pin < 0x80) {
+      // If high bit set, it's a channel, otherwise it's a digital pin so we look it up..
+      pin = digitalPinToAnalogInput(pin);
     }
-    
+    pin &= 0x3F;
+    if (pin != 0x40 && pin != 0x48 && pin > 0x0F) { /* Not many options other than pins are valid */
+      badArg("Invalid negative pin - valid options are ADC_GROUND, ADC_DAC0, or any pin on PORTD or PORTE.");
+    }
+  }
+}
+
+bool analogSampleDuration(uint8_t dur) {
+    ADC0.SAMPCTRL = dur;
+    return true;
+}
+
+bool analogReadResolution(uint8_t res)
+ {
+ 
+  if (res == 12) 
+     ADC0.CTRLA = (ADC0.CTRLA & (~ADC_RESSEL_gm)) | ADC_RESSEL_12BIT_gc;
+  else ADC0.CTRLA = (ADC0.CTRLA & (~ADC_RESSEL_gm)) | ADC_RESSEL_10BIT_gc;
+  return true;
+}
+
+int8_t getAnalogReadResolution(void)
+ {
+  return ((ADC0.CTRLA & (ADC_RESSEL_gm)) == ADC_RESSEL_12BIT_gc) ? 12 : 10;
+}
+
+
+inline uint8_t getAnalogSampleDuration(void)
+{
+  return ADC0.SAMPCTRL;
+}
+
+
 #endif
 
-*/
+
 
 

@@ -1509,22 +1509,6 @@ __attribute__ ((noinline)) void _delayMicroseconds(unsigned int us) {
   // return = 4 cycles
 }
 
-void init(void)
- {
-  // this is called by main() before setup() - configures the on-chip peripherals.
-  #if ((defined(DB_28_PINS) || defined(DB_32_pins)) && !defined(NO_PIN_PD0_BUG))
-    // PD0 does not exist on these parts - VDDIO2 took it's (physical) spot.
-    // but due to a silicon bug, the input buffer is on, but it's input is floating. Per errata, we are supposed to turn it off.
-    PORTD.PIN0CTRL = PORT_ISC_INPUT_DISABLE_gc;
-  #endif
-  init_clock();
-  init_timers();
-  init_ADC0();
-  #ifndef MILLIS_USE_TIMERNONE
-    init_millis();
-  #endif
-  // enabling interrupts is done in main.cpp after a final empty function (that the user can override) is called.
-}
 
 static uint8_t _millis_state = NOT_A_TIMER;
 void stop_millis() { // Disable the interrupt:
@@ -1812,23 +1796,7 @@ void nudge_millis(__attribute__((unused)) uint16_t nudgesize) {
   #endif
 }
 
-/********************************* ADC ****************************************/
-/*
 
-*/
-
-#define ADC0
-#define __AVR_DA__ 
-#define F_CPU 12000000
-
-
-#if defined(ADC0)
- 
-    
-    analogReference(VDD);       // to do
-    DACReference(VDD);          // to do
-  }
-#endif
 
 /**************************************** CLOCK ************************************************/
 /* This ugly function configures the system clock speed to match what the user requested       *
@@ -2530,3 +2498,21 @@ void __attribute__((weak)) init_TCD0() {
 }
 
 #endif
+
+
+void init(void)
+ {
+   // this is called by main() before setup() - configures the on-chip peripherals.
+  #if ((defined(DB_28_PINS) || defined(DB_32_pins)) && !defined(NO_PIN_PD0_BUG))
+    // PD0 does not exist on these parts - VDDIO2 took it's (physical) spot.
+    // but due to a silicon bug, the input buffer is on, but it's input is floating. Per errata, we are supposed to turn it off.
+    PORTD.PIN0CTRL = PORT_ISC_INPUT_DISABLE_gc;
+  #endif
+  init_clock();
+  init_timers();
+  init_ADC0();
+  #ifndef MILLIS_USE_TIMERNONE
+    init_millis();
+  #endif
+  // enabling interrupts is done in main.cpp after a final empty function (that the user can override) is called.
+}

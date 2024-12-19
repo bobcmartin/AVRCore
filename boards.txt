@@ -11,7 +11,7 @@ avrdu.name=AVR64DU32 Curiosity Nano
 
 #############################################################################################
 #                                                                                           #
-#                               AVRDA                                                       #
+#                               AVR128DA48 C-Nano                                                        #
 #                                                                                           #
 #############################################################################################
 
@@ -82,16 +82,20 @@ avrda.bootloader.resetpinbits=10
 # Startup time options 
 avrda.bootloader.SYSCFG1=0x04
 
-
 avrda.build.attachmode=-DCORE_ATTACH_ALL
 
-#use section 1 for avrdd
+# use section 1 for avrdd
 avrda.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION3
 avrda.build.flmapabr=.fld
 
+avrda.build.adcgroup=-D__AVR_DX__
+
+
+
+
 ###################################################################################################
 #                                                                                                 #
-#                                       AVR-DB Settings                                           #
+#                                       AVR128DB48 C-Nano                                         #
 #                                                                                                 #
 ###################################################################################################
 
@@ -194,5 +198,112 @@ avrdb.bootloader.sutbits=100
 avrdb.bootloader.appspm=
 avrdb.bootloader.BOOTSIZE=0x00
 
+#select ADC driver family
+avrdb.build.adcgroup=-D__AVR_DX__
+
+###################################################################################################
+#                                                                                                 #
+#                                       AVR64DB48 C-Nano                                          #
+#                                                                                                 #
+###################################################################################################
+
+# Parameters and defaults for DD parts 
+avrdd.upload.tool=avrdude
+avrdd.upload.prog_interlock=
+avrdd.build.board=avrdd
+avrdd.build.core=avrcore
+avrdd.build.f_cpu={build.speed}000000L
+avrdd.build.text_section_start=.text=0x0
+avrdd.build.extra_flags= {bootloader.appspm}
+avrdd.build.export_merged_output=false
+avrdd.build.mcupostfix=
+avrdd.build.printf=
+avrdd.build.wireabr=
+
+# Bootloading parameters and fuses       
+avrdd.bootloader.tool=avrdude
+avrdd.bootloader.WDTCFG=0x00
+avrdd.bootloader.BODCFG=0b{bootloader.bodlevbits}{bootloader.bodmodebits}
+avrdd.bootloader.SYSCFG0=0b1100{bootloader.resetpinbits}0{bootloader.eesavebit}
+avrdd.bootloader.SYSCFG1=0b000{bootloader.mviobits}{bootloader.sutbits}
+#avrdd.bootloader.SYSCFG1=0b00001{bootloader.sutbits}
+avrdd.bootloader.CODESIZE=0x00
+avrdd.bootloader.BOOTSIZE=0x01
+avrdd.bootloader.avrdudestring=
+avrdd.bootloader.pymcuprogstring=-aerase
+
+##########################################
+# Exported hex/lst/map names will        #
+# indicate selected options. These       #
+# are only to do that, nothing else      #
+##########################################
+
+avrdd.build.mcupostfix=
+avrdd.build.printfabr=
+avrdd.build.attachabr=
+avrdd.build.wireabr=
+avrdd.build.appspmabr=.spm{bootloader.CODESIZE}
 
 
+# AVR-DD submenu options                     
+
+# Chip (memory and pincount)             
+avrdd.menu.chip.avr64dd32=AVR64DD32 (default)
+avrdd.menu.chip.avr128db48.build.mcu=avr64dd32
+avrdd.menu.chip.avr128db48.upload.maximum_size=131072
+avrdd.menu.chip.avr128db48.upload.maximum_data_size=16384
+avrdd.menu.chip.avr128db48.build.variant=48pin-standard
+
+avrda.menu.wiremode.mors=1x Wire, Client or Host
+avrda.menu.wiremode.mors.build.wiremode=MORS_SINGLE
+avrda.menu.wiremode.mors.build.wireabr=.wO
+avrda.menu.wiremode.mands=1x Wire, Client and Host
+avrda.menu.wiremode.mands.build.wiremode=MANDS_SINGLE
+avrda.menu.wiremode.mands.build.wireabr=.wA
+avrda.menu.wiremode.mors2=2x Wire, Client or Host (32 pin+)
+avrda.menu.wiremode.mors2.build.wiremode=MORS_BOTH
+avrda.menu.wiremode.mors2.build.wireabr=.wO2
+avrda.menu.wiremode.mands2=2x Wire Client and Host
+avrda.menu.wiremode.mands2.build.wiremode=MANDS_BOTH
+avrda.menu.wiremode.mands2.build.wireabr=.wA2
+
+# Clock Speed + Source options
+avrdd.build.f_cpu=24000000L
+avrdd.build.speed=24
+avrdd.build.clocksource=0
+
+#millis timer
+avrdd.build.millistimer=B2
+
+
+# BrownOut Detection (BOD) Options
+avrdd.bootloader.bodlevbits=000
+
+
+# Retain EEPROM (EESAVE)                 
+avrdd.bootloader.eesavebit=1
+
+# Reset pin as GPIO option             
+avrdd.bootloader.resetpinbits=10
+
+# attachInterrupt Mode                   
+avrdd.build.attachmode=-DCORE_ATTACH_ALL
+
+avrdd.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION3
+avrdd.build.flmapabr=.fld
+
+
+# MVIO menu                              
+avrdd.bootloader.mviobits=01
+
+
+# Startup time options  
+# Default set to 8 ms                 
+avrdd.bootloader.sutbits=100
+
+# SPM            
+avrdd.bootloader.appspm=
+avrdd.bootloader.BOOTSIZE=0x00
+
+#select ADC driver family
+avrdd.build.adcgroup=-D__AVR_DX__
