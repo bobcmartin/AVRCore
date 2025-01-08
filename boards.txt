@@ -1,5 +1,18 @@
+############################################################################################
+#                                                                                          #
+#                        AVRCore boards.txt                                                #
+# This boards.txt file is a subset of the DxCore installation package by                   #
+# Spence Konde which sets the default parameters for the following AVR Based               #
+# Curiosity Nano boards.                                                                   #
+# A small subset of choices between I2C and Floating point support are still available     #
+# Bob Martin / Microchip Nov 2024                                                          #
+############################################################################################
+
+
+
 menu.chip=Chip
 menu.wiremode=Wire (Wire.h/I2C) Library mode
+menu.printf=printf()
 
 ##### BOARD NAMES #####
 
@@ -204,7 +217,7 @@ avrdb.build.adcgroup=-D__AVR_DX__
 
 ###################################################################################################
 #                                                                                                 #
-#                                       AVR64DD48 C-Nano                                          #
+#                                       AVR64DD32 C-Nano                                          #
 #                                                                                                 #
 ###################################################################################################
 
@@ -251,7 +264,7 @@ avrdd.bootloader.WDTCFG=0x00
 avrdd.bootloader.BODCFG=0b00000000
 
 avrdd.bootloader.CODESIZE=0x00
-avrdd.bootloader.BOOTSIZE=0x01
+avrdd.bootloader.BOOTSIZE=0x00
 avrdd.bootloader.avrdudestring=
 avrdd.bootloader.pymcuprogstring=-aerase
 
@@ -270,16 +283,18 @@ avrdd.build.wireabr=
 # AVR-DD submenu options                     
 # AVR64DD32 selected by default but displayed in menu
 
-# defaults for AVR64DU32 C-Nano             
+# defaults for AVR64DD32 C-Nano             
 avrdd.menu.chip.avr64dd32=AVR64DD32 (default)
-avrdd.menu.chip.avr128db48.build.mcu=avr64dd32
-avrdd.menu.chip.avr128db48.upload.maximum_size=65536
-avrdd.menu.chip.avr128db48.upload.maximum_data_size=8192
-avrdd.menu.chip.avr128db48.build.variant=48pin-standard
+avrdd.menu.chip.avr64dd32.build.mcu=avr64dd32
+avrdd.menu.chip.avr64dd32.upload.maximum_size=65536
+avrdd.menu.chip.avr64dd32.upload.maximum_data_size=8192
+avrdd.menu.chip.avr64dd32.build.variant=32pin-ddseries
+avrdd.menu.chip.avr64dd32.build.highesttcb=B2
+
 
 # I2C options
 
-avrdd.menu.wiremode.mors= Client or Host
+avrdd.menu.wiremode.mors=Client or Host
 avrdd.menu.wiremode.mors.build.wiremode=MORS_SINGLE
 avrdd.menu.wiremode.mors.build.wireabr=.wO
 avrdd.menu.wiremode.mands=1x Wire, Client and Host
@@ -307,7 +322,7 @@ avrdd.build.millistimer=B2
 # attachInterrupt Mode                   
 avrdd.build.attachmode=-DCORE_ATTACH_ALL
 
-avrdd.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION3
+avrdd.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION0
 avrdd.build.flmapabr=.fld
 
 #select ADC driver family

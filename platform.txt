@@ -1,6 +1,6 @@
 #######################################
 #  AVRCore platform                   #
-#  DxCore platform efinition          #
+#  DxCore platform definition         #
 #                                     #
 #  github.com/SpenceKonde/DxCore      #
 #######################################
