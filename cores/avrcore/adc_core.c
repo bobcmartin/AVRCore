@@ -172,13 +172,13 @@ int16_t analogRead_type1(uint8_t pin)
 int16_t analogRead_dif(uint8_t pin_plus,uint8_t pin_minus)
 {
 
+    int16_t adc_val;
 
 
 
 
 
-
-
+    return(adc_val);
 
 }
 
