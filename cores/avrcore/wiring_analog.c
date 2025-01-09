@@ -71,7 +71,19 @@ void check_valid_analog_pin(pin_size_t pin)
   }
 }
 
-// inline __attribute__((always_inline)) void check_valid_analog_ref(uint8_t mode) {
+inline __attribute__((always_inline)) void check_valid_negative_pin(uint8_t pin) {
+  if(__builtin_constant_p(pin)) {
+    if (pin < 0x80) {
+      // If high bit set, it's a channel, otherwise it's a digital pin so we look it up..
+      pin = digitalPinToAnalogInput(pin);
+    }
+    pin &= 0x3F;
+    if (pin != 0x40 && pin != 0x48 && pin > 0x0F) { /* Not many options other than pins are valid */
+      badArg("Invalid negative pin - valid options are ADC_GROUND, ADC_DAC0, or any pin on PORTD or PORTE.");
+    }
+  }
+}
+
 
 void check_valid_analog_ref(uint8_t mode) 
 {
