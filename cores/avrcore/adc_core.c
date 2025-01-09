@@ -131,8 +131,6 @@ void init_ADC0_type1(void)
   } // end init_ADC0_type1
 
 
-
-
 int16_t analogRead(uint8_t pin)
 {
 
@@ -170,7 +168,6 @@ int16_t analogRead_type1(uint8_t pin)
   while(!(ADC0.INTFLAGS & ADC_RESRDY_bm));
 
     return ADC0.RES;
-}
 
 int16_t analogRead_dif(uint8_t pin_plus,uint8_t pin_minus)
 {
