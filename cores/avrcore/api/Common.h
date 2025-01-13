@@ -145,13 +145,14 @@ typedef uint32_t pin_size_t;
 typedef uint8_t pin_size_t;
 #endif
 
-void    pinMode(         pin_size_t pinNumber, uint8_t mode);
-void    digitalWrite(    pin_size_t pinNumber, uint8_t val);
-int8_t  digitalRead(     pin_size_t pinNumber);
-void    analogWrite(     pin_size_t pinNumber, int value);
-// int     analogRead(      pin_size_t pinNumber);
+void    pinMode(pin_size_t pinNumber, uint8_t mode);
+void    digitalWrite(pin_size_t pinNumber, uint8_t val);
+int8_t  digitalRead(pin_size_t pinNumber);
+void    analogWrite(pin_size_t pinNumber, int value);
+int16_t analogRead(uint8_t pin);
+int16_t analogRead_diff(uint8_t pin_plus,uint8_t pin_minus);
 // void    analogReference(         uint8_t mode);
-// bool    analogReadResolution(     uint8_t res);
+void  analogReadResolution(     uint8_t res);
 
 unsigned long millis(void);
 unsigned long micros(void);

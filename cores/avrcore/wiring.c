@@ -2510,7 +2510,7 @@ void init(void)
   #endif
   init_clock();
   init_timers();
-  // init_ADC0();
+  init_ADC0();
   #ifndef MILLIS_USE_TIMERNONE
     init_millis();
   #endif

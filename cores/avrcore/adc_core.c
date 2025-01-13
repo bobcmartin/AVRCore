@@ -26,7 +26,7 @@
     AVR DA, AVR DB, AVR DD 
 
 
-  ADC_CORE22
+  ADC_CORE2
     AVR DU  
 
 
@@ -54,8 +54,14 @@ ADC0_status_t adc_status;
   }
 
 
-// fuuntion pointer for correct analogRead function
+// fuuntion pointers for correct analogRead functions
+
+
 int16_t (*adc_read)(uint8_t pin);
+void (*adc_resolution)(uint8_t pin);
+
+
+// Initialize the ADC0 peripheral according to the chip type
 
 void init_ADC0(void) 
   {
@@ -121,7 +127,7 @@ void init_ADC0_type1(void)
    #else                              
       pADC->CTRLC = ADC_PRESC_DIV2_gc;   // 1 MHz / 2 = 500 kHz
    #endif
-      
+       
    // 16 ADC clock sampling time 
    pADC->SAMPCTRL = 14; 
       
@@ -131,8 +137,9 @@ void init_ADC0_type1(void)
    /* Enable ADC in 10 bit mode */
    pADC->CTRLA = ADC_ENABLE_bm | ADC_RESSEL_10BIT_gc;
 
-   // set analogRead function pointer
+   // set correct function pointers
    adc_read = analogRead_type1;
+   adc_resolution = analogReadResolution1;
 
   } // end init_ADC0_type1
 
@@ -160,6 +167,7 @@ int16_t analogRead_type1(uint8_t pin)
   if (pin < 0x80)
     pin = digitalPinToAnalogInput(pin);
   
+  ADC0.CTRLA &= ~(ADC_CONVMODE_DIFF_gc);  // set single ended mode
 
   // set negative input to GND
   ADC0.MUXNEG = 0x40;
@@ -182,47 +190,81 @@ int16_t analogRead_type1(uint8_t pin)
 
 }
 
-int16_t analogRead_dif(uint8_t pin_plus,uint8_t pin_minus)
+#ifdef ADC_TYPE1
+
+int16_t analogRead_diff(uint8_t pin_plus,uint8_t pin_minus)
 {
 
-    int16_t adc_val = 0;
+  int16_t adc_val = 0;
 
-    check_valid_analog_pin(pin_plus);
-    check_valid_negative_pin(pin_minus);
+  check_valid_analog_pin(pin_plus);
+  check_valid_negative_pin(pin_minus);
     
-    if (pin_plus < 0x80)
-       pin_plus = digitalPinToAnalogInput(pin_plus);
+  if (pin_plus < 0x80)
+     pin_plus = digitalPinToAnalogInput(pin_plus);
     
-    if (pin_minus < 0x80)
-       pin_minus = digitalPinToAnalogInput(pin_minus);
+  if (pin_minus < 0x80)
+     pin_minus = digitalPinToAnalogInput(pin_minus);
   
-     /* Select positive channel */
-      ADC0.MUXPOS = ((pin_plus & 0x7F) << ADC_MUXPOS_gp);
+  // set ADC0 into diff mode
+
+  ADC0.CTRLA |= ADC_CONVMODE_DIFF_gc; 
+    
+    /* Select positive channel */
+  ADC0.MUXPOS = ((pin_plus & 0x7F) << ADC_MUXPOS_gp);
 
     // select negative channel
-     ADC0.MUXPOS = ((pin_plus & 0x7F) << ADC_MUXNEG_gp);
+  ADC0.MUXNEG = ((pin_minus & 0x7F) << ADC_MUXNEG_gp);
+    
+  
+  /* Start conversion */
+  ADC0.COMMAND = ADC_STCONV_bm;
 
+  /* Wait for result ready */
+  while(!(ADC0.INTFLAGS & ADC_RESRDY_bm)); 
+   adc_val = ADC0.RES;
+   
+  // ADC0.CTRLA &= ~(ADC_CONVMODE_DIFF_gc);  // return back to single ended mode
      
-     
-    return ADC0.RES;
+  return(adc_val); 
+    
     
 }
+
+#endif
+
 
 void analogSampleDuration(uint8_t dur) 
 {
     ADC0.SAMPCTRL = dur;
 }  
 
+
+
 void analogReadResolution(uint8_t res)
  {
- 
-  if (res == 12) 
-     ADC0.CTRLA = (ADC0.CTRLA & (~ADC_RESSEL_gm)) | ADC_RESSEL_12BIT_gc;
-  else ADC0.CTRLA = (ADC0.CTRLA & (~ADC_RESSEL_gm)) | ADC_RESSEL_10BIT_gc;
+
+    adc_resolution(res);
   
  }
 
+void analogReadResolution1(uint8_t res)
+{
 
+  if (res == 12) 
+     ADC0.CTRLA = (ADC0.CTRLA & (~ADC_RESSEL_gm)) | ADC_RESSEL_12BIT_gc;
+  else ADC0.CTRLA = (ADC0.CTRLA & (~ADC_RESSEL_gm)) | ADC_RESSEL_10BIT_gc;
+
+}
+
+void analogReadResolution2(uint8_t res)
+{
+
+  if (res == 12) 
+     ADC0.CTRLA = (ADC0.CTRLA & (~ADC_RESSEL_gm)) | ADC_RESSEL_12BIT_gc;
+  else ADC0.CTRLA = (ADC0.CTRLA & (~ADC_RESSEL_gm)) | ADC_RESSEL_10BIT_gc;
+
+}
 
 int8_t getAnalogReadResolution(void)
  {

@@ -101,9 +101,7 @@ avrda.build.attachmode=-DCORE_ATTACH_ALL
 avrda.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION3
 avrda.build.flmapabr=.fld
 
-avrda.build.adcgroup=-D__AVR_DX__
-
-
+avrda.build.adcgroup=-DADC_TYPE1
 
 
 ###################################################################################################
@@ -213,7 +211,7 @@ avrdb.bootloader.appspm=
 avrdb.bootloader.BOOTSIZE=0x00
 
 #select ADC driver family
-avrdb.build.adcgroup=-D__AVR_DX__
+avrdb.build.adcgroup=-DADC_TYPE1
 
 ###################################################################################################
 #                                                                                                 #
@@ -325,8 +323,8 @@ avrdd.build.attachmode=-DCORE_ATTACH_ALL
 avrdd.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION0
 avrdd.build.flmapabr=.fld
 
-#select ADC driver family
-avrdd.build.adcgroup=-D__AVR_DX__
+#select ADC core driver 
+avrdd.build.adcgroup=-DADC_TYPE1
 
 
 ###################################################################################################
@@ -434,4 +432,4 @@ avrdu.bootloader.appspm=
 avrdu.bootloader.BOOTSIZE=0x00
 
 #select ADC driver family
-avrdu.build.adcgroup=-D__AVR_DX__
+avrdu.build.adcgroup=-DADC_TYPE2
