@@ -35,7 +35,15 @@
 void init_ADC0_type1(void);
 void init_ADC0_type2(void);
 
+int16_t analogRead_type1(uint8_t pin);
+int16_t analogRead_dif(uint8_t pin_plus,uint8_t pin_minus);
+void analogSampleDuration(uint8_t dur);
+int8_t getAnalogReadResolution(void);
+inline uint8_t getAnalogSampleDuration(void);
+ADC0_status_t* read_adc_status(void);
+
 ADC0_config_t adc_config;
+ADC0_status_t adc_status;
 
 
   void analogReference(uint8_t mode) 
@@ -46,10 +54,8 @@ ADC0_config_t adc_config;
   }
 
 
-uint16_t (*adc_read(uint8_t pin));
-
-
-
+// fuuntion pointer for correct analogRead function
+int16_t (*adc_read)(uint8_t pin);
 
 void init_ADC0(void) 
   {
@@ -91,16 +97,16 @@ void init_ADC0_type1(void)
    adc_config.left_adjust = false;
    adc_config.dif_mode = false;                                // single ended mode
    adc_config.bit_depth = 10;
-   adc_config.muxpos = 0x40                                    // init MUXPOS to GND
+   adc_config.mux_pos = 0x40;                                    // init MUXPOS to GND
+   adc_config.mux_neg = 0x40;
    adc_config.samp_delay = 0x02;                               // arbitrary samp delay of 2 clock cycles
    adc_config.init_delay = ADC_INITDLY_DLY64_gc;               // arbitrary init delay of 64 clocks
    adc_config.reference = VDD;                  
    adc_config.sample_number = 1;                               // single sample mode
 
-   analogReference(VDD);       
+   analogReference(VDD);                                       // analog ref set to VDD by default
    
   // scale the ADC speed to be around 1 MHz regardless of CPU frequency
-  
   
    #if F_CPU >= 24000000
        pADC->CTRLC = ADC_PRESC_DIV20_gc; // 1.2 @ 24, 1.25 @ 25, 1.4 @ 28  MHz
@@ -122,11 +128,11 @@ void init_ADC0_type1(void)
    // VREF init delay
    pADC->CTRLD = ADC_INITDLY_DLY64_gc; 
      
-      /* Enable ADC in 10 bit mode */
+   /* Enable ADC in 10 bit mode */
    pADC->CTRLA = ADC_ENABLE_bm | ADC_RESSEL_10BIT_gc;
 
-  // set correct analogRead function pointer
-  adc_read = analogRead_type1;
+   // set analogRead function pointer
+   adc_read = analogRead_type1;
 
   } // end init_ADC0_type1
 
@@ -152,11 +158,16 @@ int16_t analogRead_type1(uint8_t pin)
   check_valid_analog_pin(pin);
 
   if (pin < 0x80)
-   {
     pin = digitalPinToAnalogInput(pin);
-    
-    }
-  }
+  
+
+  // set negative input to GND
+  ADC0.MUXNEG = 0x40;
+
+  // fill entries in adc_status
+  adc_status.mux_plus = pin;
+  adc_status.mux_neg = 0x40;
+
 
   /* Select channel */
   ADC0.MUXPOS = ((pin & 0x7F) << ADC_MUXPOS_gp);
@@ -167,19 +178,34 @@ int16_t analogRead_type1(uint8_t pin)
   /* Wait for result ready */
   while(!(ADC0.INTFLAGS & ADC_RESRDY_bm));
 
-    return ADC0.RES;
+  return ADC0.RES;
+
+}
 
 int16_t analogRead_dif(uint8_t pin_plus,uint8_t pin_minus)
 {
 
-    int16_t adc_val;
+    int16_t adc_val = 0;
 
+    check_valid_analog_pin(pin_plus);
+    check_valid_negative_pin(pin_minus);
+    
+    if (pin_plus < 0x80)
+       pin_plus = digitalPinToAnalogInput(pin_plus);
+    
+    if (pin_minus < 0x80)
+       pin_minus = digitalPinToAnalogInput(pin_minus);
+  
+     /* Select positive channel */
+      ADC0.MUXPOS = ((pin_plus & 0x7F) << ADC_MUXPOS_gp);
 
+    // select negative channel
+     ADC0.MUXPOS = ((pin_plus & 0x7F) << ADC_MUXNEG_gp);
 
-
-
-    return(adc_val);
-
+     
+     
+    return ADC0.RES;
+    
 }
 
 void analogSampleDuration(uint8_t dur) 
@@ -210,3 +236,11 @@ inline uint8_t getAnalogSampleDuration(void)
 }
 
 
+ADC0_status_t* read_adc_status(void)
+{
+
+    return(&adc_status);
+
+
+
+}

@@ -27,6 +27,7 @@
 
 
 // inline __attribute__((always_inline)) void check_valid_analog_pin(pin_size_t pin) {
+
 void check_valid_analog_pin(pin_size_t pin)
  {
 
@@ -71,7 +72,10 @@ void check_valid_analog_pin(pin_size_t pin)
   }
 }
 
-inline __attribute__((always_inline)) void check_valid_negative_pin(uint8_t pin) {
+// inline __attribute__((always_inline)) void check_valid_negative_pin(uint8_t pin) {
+void check_valid_negative_pin(uint8_t pin) 
+{
+
   if(__builtin_constant_p(pin)) {
     if (pin < 0x80) {
       // If high bit set, it's a channel, otherwise it's a digital pin so we look it up..

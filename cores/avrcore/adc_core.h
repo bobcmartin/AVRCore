@@ -1,5 +1,6 @@
 /*
     configuration primative for DA/DB and DD ADC0 blocks
+    oringinal code base for DxCore / Spence Konde
 
     Bob Martin
     microchip Sept 2024
@@ -29,11 +30,22 @@ typedef struct ADC0_config
 
 } ADC0_config_t;
 
+typedef struct ADC0_status
+{
+
+    uint8_t mux_plus;
+    uint8_t mux_neg;
+    
+} ADC0_status_t;
+
+
+
+
 void analogReference(uint8_t mode);
-void check_valid_analog_pin(pin_size_t pin);
+// void check_valid_analog_pin(pin_size_t pin);
 void check_valid_analog_ref(uint8_t mode);
 void init_ADC0(void);
-
-
+void check_valid_analog_pin(pin_size_t pin);
+void check_valid_negative_pin(uint8_t pin);
 
 
