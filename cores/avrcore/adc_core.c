@@ -45,6 +45,7 @@ ADC0_status_t* read_adc_status(void);
 ADC0_config_t adc_config;
 ADC0_status_t adc_status;
 
+u
 
   void analogReference(uint8_t mode) 
   {
@@ -55,10 +56,10 @@ ADC0_status_t adc_status;
 
 
 // fuuntion pointers for correct analogRead functions
-
-
 int16_t (*adc_read)(uint8_t pin);
 void (*adc_resolution)(uint8_t pin);
+void (^adc_sample_count)(uint8_t sample_count);
+
 
 
 // Initialize the ADC0 peripheral according to the chip type
@@ -190,8 +191,8 @@ int16_t analogRead_type1(uint8_t pin)
 
 }
 
-#ifdef ADC_TYPE1
 
+#ifdef ADC_TYPE1  // AVR DA,DB,DD
 int16_t analogRead_diff(uint8_t pin_plus,uint8_t pin_minus)
 {
 
@@ -202,21 +203,18 @@ int16_t analogRead_diff(uint8_t pin_plus,uint8_t pin_minus)
     
   if (pin_plus < 0x80)
      pin_plus = digitalPinToAnalogInput(pin_plus);
-    
   if (pin_minus < 0x80)
      pin_minus = digitalPinToAnalogInput(pin_minus);
   
   // set ADC0 into diff mode
-
   ADC0.CTRLA |= ADC_CONVMODE_DIFF_gc; 
     
     /* Select positive channel */
   ADC0.MUXPOS = ((pin_plus & 0x7F) << ADC_MUXPOS_gp);
 
-    // select negative channel
+  // select negative channel
   ADC0.MUXNEG = ((pin_minus & 0x7F) << ADC_MUXNEG_gp);
-    
-  
+ 
   /* Start conversion */
   ADC0.COMMAND = ADC_STCONV_bm;
 
@@ -224,14 +222,85 @@ int16_t analogRead_diff(uint8_t pin_plus,uint8_t pin_minus)
   while(!(ADC0.INTFLAGS & ADC_RESRDY_bm)); 
    adc_val = ADC0.RES;
    
-  // ADC0.CTRLA &= ~(ADC_CONVMODE_DIFF_gc);  // return back to single ended mode
-     
-  return(adc_val); 
-    
-    
+  if(adc_config.sample_count != 1)
+    adc_val = adc_val / adc_config.sample_count;
+
+  return(adc_val);     
 }
 
 #endif
+
+// AVR DU
+#ifdef ADC_TYPE2
+int16_t analogRead_diff(uint8_t pin_plus,uint8_t pin_minus)
+{
+
+  int16_t adc_val = 0;
+
+  check_valid_analog_pin(pin_plus);
+  check_valid_negative_pin(pin_minus);
+    
+  if (pin_plus < 0x80)
+     pin_plus = digitalPinToAnalogInput(pin_plus);
+  if (pin_minus < 0x80)
+     pin_minus = digitalPinToAnalogInput(pin_minus);
+  
+  // set ADC0 into diff mode
+  ADC0.CTRLA |= ADC_CONVMODE_DIFF_gc; 
+    
+    /* Select positive channel */
+  ADC0.MUXPOS = ((pin_plus & 0x7F) << ADC_MUXPOS_gp);
+
+  // select negative channel
+  ADC0.MUXNEG = ((pin_minus & 0x7F) << ADC_MUXNEG_gp);
+ 
+  /* Start conversion */
+  ADC0.COMMAND = ADC_STCONV_bm;
+
+  /* Wait for result ready */
+  while(!(ADC0.INTFLAGS & ADC_RESRDY_bm)); 
+   adc_val = ADC0.RES;
+   
+  return(adc_val);     
+}
+
+#endif
+
+
+int8_t sample_index[2][8] =
+  {
+      {0,1,2,3,4,5,6,7},
+      {1,2,4,8,16,32,64,128}
+  }
+
+// sample number
+
+#ifdef ADC_TYPE1
+
+void analogRead_setsample(uint8_t sample_count)
+{
+
+  uint8_t scan_index,ctrlb_val = 0xFF;
+
+  for(scan_index = 0,scan_index < 8;scan_index++)
+  {
+
+    if(sample_index[1][scan_index] == sample_count)
+      ctrlb_val = sample_index[0][scan_index];    // extract correct value CTRLB reg
+  }
+
+  if(ctrlb_val = 0xFF)
+    {
+      ctrlb_val = 0x00;      // set to single sample if not valid
+      adc_config.sample_number = 1;  
+    }
+  else adc_config.sample_number = sample_count;
+
+  ADC0.CTRLB = crtlb_val;
+
+}
+#endif 
+
 
 
 void analogSampleDuration(uint8_t dur) 
