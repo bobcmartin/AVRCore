@@ -32,6 +32,12 @@
 
 */
 
+int8_t sample_index[2][8] =
+  {
+      {0,1,2,3,4,5,6,7},
+      {1,2,4,8,16,32,64,128}
+  };
+
 void init_ADC0_type1(void);
 void init_ADC0_type2(void);
 
@@ -45,20 +51,18 @@ ADC0_status_t* read_adc_status(void);
 ADC0_config_t adc_config;
 ADC0_status_t adc_status;
 
-u
-
-  void analogReference(uint8_t mode) 
+void analogReference(uint8_t mode) 
   {
     check_valid_analog_ref(mode);
       if (mode < 7 && mode != 4)
         VREF.ADC0REF = (VREF.ADC0REF & ~(VREF_REFSEL_gm))|(mode);
-  }
+ }
 
 
 // fuuntion pointers for correct analogRead functions
 int16_t (*adc_read)(uint8_t pin);
 void (*adc_resolution)(uint8_t pin);
-void (^adc_sample_count)(uint8_t sample_count);
+void (*adc_sample_count)(uint8_t sample_count);
 
 
 
@@ -220,10 +224,11 @@ int16_t analogRead_diff(uint8_t pin_plus,uint8_t pin_minus)
 
   /* Wait for result ready */
   while(!(ADC0.INTFLAGS & ADC_RESRDY_bm)); 
-   adc_val = ADC0.RES;
+  
+  adc_val = ADC0.RES;
    
-  if(adc_config.sample_count != 1)
-    adc_val = adc_val / adc_config.sample_count;
+  if(adc_config.sample_number != 1)
+    adc_val = adc_val / (int16_t)adc_config.sample_number;
 
   return(adc_val);     
 }
@@ -267,36 +272,30 @@ int16_t analogRead_diff(uint8_t pin_plus,uint8_t pin_minus)
 #endif
 
 
-int8_t sample_index[2][8] =
-  {
-      {0,1,2,3,4,5,6,7},
-      {1,2,4,8,16,32,64,128}
-  }
 
 // sample number
 
 #ifdef ADC_TYPE1
-
 void analogRead_setsample(uint8_t sample_count)
 {
 
   uint8_t scan_index,ctrlb_val = 0xFF;
 
-  for(scan_index = 0,scan_index < 8;scan_index++)
+  for(scan_index = 0;scan_index < 8;scan_index++)
   {
 
     if(sample_index[1][scan_index] == sample_count)
       ctrlb_val = sample_index[0][scan_index];    // extract correct value CTRLB reg
   }
 
-  if(ctrlb_val = 0xFF)
+  if(ctrlb_val == 0xFF)
     {
       ctrlb_val = 0x00;      // set to single sample if not valid
       adc_config.sample_number = 1;  
     }
   else adc_config.sample_number = sample_count;
 
-  ADC0.CTRLB = crtlb_val;
+  ADC0.CTRLB = ctrlb_val;
 
 }
 #endif 

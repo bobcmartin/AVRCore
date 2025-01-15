@@ -17,7 +17,7 @@ typedef struct ADC0_config
 {
     uint8_t prescaler;
     uint8_t left_adjust;
-    uint8_t sample_number;
+    int8_t sample_number;
     uint8_t dif_mode;
     uint8_t mux_pos;
     uint8_t mux_neg;
