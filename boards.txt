@@ -9,10 +9,11 @@
 ############################################################################################
 
 
-
+# create top level menu entries
 menu.chip=Chip
-menu.wiremode=Wire (Wire.h/I2C) Library mode
 menu.printf=printf()
+menu.wiremode=Wire (Wire.h/I2C) Library mode
+
 
 ##### BOARD NAMES #####
 
@@ -235,7 +236,6 @@ avrdd.build.wireabr=
 
 ###### Bootloading parameters and fuses #######      
 
-
 # Reset pin (PF6) and UDPI enabled (PF7)          
 avrdd.bootloader.resetpinbits=11
 
@@ -295,7 +295,7 @@ avrdd.menu.chip.avr64dd32.build.highesttcb=B2
 avrdd.menu.wiremode.mors=Client or Host
 avrdd.menu.wiremode.mors.build.wiremode=MORS_SINGLE
 avrdd.menu.wiremode.mors.build.wireabr=.wO
-avrdd.menu.wiremode.mands=1x Wire, Client and Host
+avrdd.menu.wiremode.mands=Client and Host
 avrdd.menu.wiremode.mands.build.wiremode=MANDS_SINGLE
 avrdd.menu.wiremode.mands.build.wireabr=.wA
 
@@ -329,14 +329,14 @@ avrdd.build.adcgroup=-DADC_TYPE1
 
 ###################################################################################################
 #                                                                                                 #
-#                                       AVR64DU48 C-Nano                                          #
+#                                       AVR64DU32 C-Nano                                          #
 #                                                                                                 #
 ###################################################################################################
 
 # Parameters and defaults for DU parts 
 avrdu.upload.tool=avrdude
 avrdu.upload.prog_interlock=
-avrdu.build.board=avrdd
+avrdu.build.board=avrdu
 avrdu.build.core=avrcore
 avrdu.build.f_cpu={build.speed}000000L
 avrdu.build.text_section_start=.text=0x0
@@ -349,12 +349,23 @@ avrdu.build.wireabr=
 # Bootloading parameters and fuses       
 avrdu.bootloader.tool=avrdude
 avrdu.bootloader.WDTCFG=0x00
-avrdu.bootloader.BODCFG=0b{bootloader.bodlevbits}{bootloader.bodmodebits}
-avrdu.bootloader.SYSCFG0=0b1100{bootloader.resetpinbits}0{bootloader.eesavebit}
-avrdu.bootloader.SYSCFG1=0b000{bootloader.mviobits}{bootloader.sutbits}
-#avrdu.bootloader.SYSCFG1=0b00001{bootloader.sutbits}
+
+####################################################
+#   defualt safe setiings for the BOOT FUSES
+avrdu.bootloader.BODCFG=0x00
+avrdu.bootloader.OSCCFG=0x00
+avrdu.bootloader.SYSCFG0=0xD8
+avrdu.bootloader.SYSCFG1=0x08
 avrdu.bootloader.CODESIZE=0x00
-avrdu.bootloader.BOOTSIZE=0x01
+avrdu.bootloader.BOOTSIZE=0x00
+#####################################################
+
+
+#avrdu.bootloader.BODCFG=0b{bootloader.bodlevbits}{bootloader.bodmodebits}
+#avrdu.bootloader.SYSCFG0=0b1100{bootloader.resetpinbits}0{bootloader.eesavebit}
+#avrdu.bootloader.SYSCFG1=0b000{bootloader.mviobits}{bootloader.sutbits}
+#avrdu.bootloader.SYSCFG1=0b00001{bootloader.sutbits}
+
 avrdu.bootloader.avrdudestring=
 avrdu.bootloader.pymcuprogstring=-aerase
 
@@ -368,30 +379,34 @@ avrdu.build.mcupostfix=
 avrdu.build.printfabr=
 avrdu.build.attachabr=
 avrdu.build.wireabr=
-avrdu.build.appspmabr=.spm{bootloader.CODESIZE}
+#avrdu.build.appspmabr=.spm{bootloader.CODESIZE}
 
 
-# AVR-DD submenu options                     
+# AVR-DU submenu options                     
 
 # Chip (memory and pincount)             
-avrdu.menu.chip.avr64dd32=AVR64DD32 (default)
-avrdu.menu.chip.avr128db48.build.mcu=avr64dd32
-avrdu.menu.chip.avr128db48.upload.maximum_size=131072
-avrdu.menu.chip.avr128db48.upload.maximum_data_size=16384
-avrdu.menu.chip.avr128db48.build.variant=48pin-standard
+avrdu.menu.chip.avr64du32=AVR64DU32 (default)
+avrdu.menu.chip.avr64du32.build.mcu=avr64dd32
+avrdu.menu.chip.avr64du32.upload.maximum_size=65536
+avrdu.menu.chip.avr64du32.upload.maximum_data_size=8192
+avrdu.menu.chip.avr64du32.build.variant=32pin-duseries
 
-avrda.menu.wiremode.mors=1x Wire, Client or Host
-avrda.menu.wiremode.mors.build.wiremode=MORS_SINGLE
-avrda.menu.wiremode.mors.build.wireabr=.wO
-avrda.menu.wiremode.mands=1x Wire, Client and Host
-avrda.menu.wiremode.mands.build.wiremode=MANDS_SINGLE
-avrda.menu.wiremode.mands.build.wireabr=.wA
-avrda.menu.wiremode.mors2=2x Wire, Client or Host (32 pin+)
-avrda.menu.wiremode.mors2.build.wiremode=MORS_BOTH
-avrda.menu.wiremode.mors2.build.wireabr=.wO2
-avrda.menu.wiremode.mands2=2x Wire Client and Host
-avrda.menu.wiremode.mands2.build.wiremode=MANDS_BOTH
-avrda.menu.wiremode.mands2.build.wireabr=.wA2
+avrdu.menu.wiremode.mors=1x Wire, Client or Host
+avrdu.menu.wiremode.mors.build.wiremode=MORS_SINGLE
+avrdu.menu.wiremode.mors.build.wireabr=.wO
+avrdu.menu.wiremode.mands=1x Wire, Client and Host
+avrdu.menu.wiremode.mands.build.wiremode=MANDS_SINGLE
+avrdu.menu.wiremode.mands.build.wireabr=.wA
+
+# printf() version options               
+
+avrdu.menu.printf.default=Default, 1.5k flash, no floats
+avrdu.menu.printf.full=Full, 2.6k, prints floats
+avrdu.menu.printf.full.build.printf=-Wl,-u,vfprintf -lprintf_flt
+avrdu.menu.printf.full.build.printfabr=.pfF
+avrdu.menu.printf.minimal=Minimal, 1.1k flash used
+avrdu.menu.printf.minimal.build.printf=-Wl,-u,vfprintf -lprintf_min
+avrdu.menu.printf.minimal.build.printfabr=.pfM
 
 # Clock Speed + Source options
 avrdu.build.f_cpu=24000000L
@@ -415,13 +430,8 @@ avrdu.bootloader.resetpinbits=10
 # attachInterrupt Mode                   
 avrdu.build.attachmode=-DCORE_ATTACH_ALL
 
-avrdu.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION3
+avrdu.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION0
 avrdu.build.flmapabr=.fld
-
-
-# MVIO menu                              
-avrdu.bootloader.mviobits=01
-
 
 # Startup time options  
 # Default set to 8 ms                 

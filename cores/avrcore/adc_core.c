@@ -77,7 +77,7 @@ void init_ADC0(void)
     #endif
 
     #if defined(ADC_TYPE2)
-      init_ADC_type2();
+      init_ADC0_type2();
     #endif
 
   }
@@ -264,7 +264,8 @@ int16_t analogRead_diff(uint8_t pin_plus,uint8_t pin_minus)
 
   /* Wait for result ready */
   while(!(ADC0.INTFLAGS & ADC_RESRDY_bm)); 
-   adc_val = ADC0.RES;
+  
+  adc_val = ADC0.RES;
    
   return(adc_val);     
 }
@@ -300,7 +301,7 @@ void analogRead_setsample(uint8_t sample_count)
 }
 #endif 
 
-
+/*
 
 void analogSampleDuration(uint8_t dur) 
 {
@@ -351,6 +352,5 @@ ADC0_status_t* read_adc_status(void)
 
     return(&adc_status);
 
-
-
 }
+*/

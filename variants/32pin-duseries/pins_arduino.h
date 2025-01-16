@@ -80,7 +80,7 @@ Include guard and include basic libraries. We are normally including this inside
 // TOTAL_FREE_OPINS = NUM_DIGITAL_PINS - NUM_INTERNALLY_USED_PINS
 // Count of I2C and SPI pins will be defined as 2 and 3 but not used in further calculations. If you
 // for some reason need to change this, define them here. Only ones not defined here get automatically set.
-  #define LED_BUILTIN                  PIN_PA7
+#define LED_BUILTIN                  PIN_PF2
 
 /* Until the legacy attach interrupt has been completely obsoleted - this is such a waste here! */
 #ifdef CORE_ATTACH_OLD
@@ -237,7 +237,7 @@ Include guard and include basic libraries. We are normally including this inside
 #define PIN_A26            PIN_PA6
 #define PIN_A27            PIN_PA7
 
-static const uint8_t A0  = PIN_A0; // PD0 doesn't exist - it's VDDIO2.
+static const uint8_t A0  = PIN_A0; 
 static const uint8_t A1  = PIN_A1;
 static const uint8_t A2  = PIN_A2;
 static const uint8_t A3  = PIN_A3;
