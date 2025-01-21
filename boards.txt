@@ -386,10 +386,11 @@ avrdu.build.wireabr=
 
 # Chip (memory and pincount)             
 avrdu.menu.chip.avr64du32=AVR64DU32 (default)
-avrdu.menu.chip.avr64du32.build.mcu=avr64dd32
+avrdu.menu.chip.avr64du32.build.mcu=avr64du32
 avrdu.menu.chip.avr64du32.upload.maximum_size=65536
 avrdu.menu.chip.avr64du32.upload.maximum_data_size=8192
 avrdu.menu.chip.avr64du32.build.variant=32pin-duseries
+avrdu.menu.chip.avr64dd32.build.highesttcb=B2
 
 avrdu.menu.wiremode.mors=1x Wire, Client or Host
 avrdu.menu.wiremode.mors.build.wiremode=MORS_SINGLE
@@ -414,7 +415,8 @@ avrdu.build.speed=24
 avrdu.build.clocksource=0
 
 #millis timer
-avrdu.build.millistimer=B2
+
+avrdu.build.millistimer=B1
 
 
 # BrownOut Detection (BOD) Options

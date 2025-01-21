@@ -10,6 +10,7 @@
 
 #ifndef Core_Devices_h
 #define Core_Devices_h
+
 #include <avr/io.h>
 #include <core_parameters.h>
 /*
@@ -863,7 +864,7 @@ That's how pessimistic I am left feeling about the prospects for errata fixes by
   #define ERRATA_2V1_EXCESS_IDD          (0) // Thankfully he seems to be gone now
 #endif
 
-#if defined(__AVR_DA__) || defined(__AVR_DB__) || defined(__AVR_DD__)
+#if defined(__AVR_DA__) || defined(__AVR_DB__) || defined(__AVR_DD__) || defined(__AVR_DU__)
   #define ERRATA_FLASH_MULTIPAGE         (1)
   // If write protection is enabled on the APPDATA section, but
   // it is not aligned on a 16k boundary, 32-page erase targeting the APPCODE section before it reached APPDATA, a chunk of APPCODE can be erased.
@@ -882,11 +883,14 @@ That's how pessimistic I am left feeling about the prospects for errata fixes by
 
 
 
-#elif defined(__AVR_DU__) || (__AVR_EB__)
-  #warning "AVR DU Errata not suported yet"
+#elif defined(__AVR_EB__)
+  #warning "AVR EB Errata not suported yet"
 #else
   #warning "Unrecognized part - even if this compiles, something is mondo wrong with your IDE or system. Behavior w/unknown part is undefined, and may result in demons flying out of your nose"
 #endif
+
+
+
 
 #define ERRATA_AVRXT_IOREG               (1) // theorized to be present on all modern AVRs until it's discovery and disclosure by Microchip in 2023. It sounds wicked nasty
 // in the abstract but in reality you have to dance the hokey pokey backwards under a full moon in order to make it manifest.
