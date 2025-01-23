@@ -189,7 +189,7 @@ Include guard and include basic libraries. We are normally including this inside
 // USART1
 #define HWSERIAL1_MUX                   PORTMUX_USART1_DEFAULT_gc
 #define HWSERIAL1_MUX_PINSWAP_2         PORTMUX_USART1_ALT2_gc
-#define HWSERIAL1_MUX_PINSWAP_NONE      PORTMUX_USART1_NONE_gc
+#define HWSERIAL1_MUX_PINSWAP_NONE      PORTMUX_USART1_DEFAULT_gc
 #define PIN_HWSERIAL1_TX                PIN_PD6
 #define PIN_HWSERIAL1_RX                PIN_PD7
 #define PIN_HWSERIAL1_TX_PINSWAP_2      PIN_PD6
@@ -237,7 +237,7 @@ Include guard and include basic libraries. We are normally including this inside
 #define PIN_A26            PIN_PA6
 #define PIN_A27            PIN_PA7
 
-static const uint8_t A0  = PIN_A0; // PD0 doesn't exist - it's VDDIO2.
+static const uint8_t A0  = PIN_A0; 
 static const uint8_t A1  = PIN_A1;
 static const uint8_t A2  = PIN_A2;
 static const uint8_t A3  = PIN_A3;

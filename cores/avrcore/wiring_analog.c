@@ -28,6 +28,7 @@
 
 // inline __attribute__((always_inline)) void check_valid_analog_pin(pin_size_t pin) {
 
+#ifdef ADC_TYPE1
 void check_valid_analog_pin(pin_size_t pin)
  {
 
@@ -71,8 +72,12 @@ void check_valid_analog_pin(pin_size_t pin)
     }
   }
 }
+#endif
+
+
 
 // inline __attribute__((always_inline)) void check_valid_negative_pin(uint8_t pin) {
+#ifdef ADC_TYPE1
 void check_valid_negative_pin(uint8_t pin) 
 {
 
@@ -87,6 +92,7 @@ void check_valid_negative_pin(uint8_t pin)
     }
   }
 }
+#endif
 
 
 void check_valid_analog_ref(uint8_t mode) 
@@ -121,15 +127,12 @@ inline __attribute__((always_inline)) void check_valid_duty_cycle(int16_t val) {
 
 
 
-
+#ifdef DAC0
 uint8_t getDACReference() {
   return VREF.DAC0REF & VREF_REFSEL_gm;
 }
 
-
-/*
-Frequency in kHz.
-*/
+#endif
  
 
 

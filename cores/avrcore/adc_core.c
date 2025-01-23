@@ -21,7 +21,7 @@
 
 // highligh current ADC TYPE
 // #define ADC_TYPE1
-#define ADC_TYPE2
+// #define ADC_TYPE2
 
 /*
 
@@ -42,10 +42,17 @@ int8_t sample_index[2][8] =
       {1,2,4,8,16,32,64,128}
   };
 
+// fuuntion pointers for correct analogRead functions
+int16_t (*adc_read)(uint8_t pin);
+void (*adc_resolution)(uint8_t pin);
+void (*adc_sample_count)(uint8_t sample_count);
+
+
 void init_ADC0_type1(void);
 void init_ADC0_type2(void);
 
 int16_t analogRead_type1(uint8_t pin);
+int16_t analogRead_type2(uint8_t pin);
 int16_t analogRead_dif(uint8_t pin_plus,uint8_t pin_minus);
 void analogSampleDuration(uint8_t dur);
 int8_t getAnalogReadResolution(void);
@@ -58,7 +65,6 @@ ADC0_status_t adc_status;
 #ifdef ADC_TYPE1
 void analogReference(uint8_t mode) 
   {
-    check_valid_analog_ref(mode);
       if (mode < 7 && mode != 4)
         VREF.ADC0REF = (VREF.ADC0REF & ~(VREF_REFSEL_gm))|(mode);
  }
@@ -68,25 +74,18 @@ void analogReference(uint8_t mode)
 #ifdef ADC_TYPE2
 void analogReference(uint8_t mode) 
   {
-    check_valid_analog_ref(mode);
-      if (mode < 7 && mode != 4)
-        VREF.ADC0REF = (VREF.ADC0REF & ~(VREF_REFSEL_gm))|(mode);
+    
+    if (mode < 7 && mode != 0x01 && mode != 0x03)
+        ADC0.CTRLC = mode;
+    else ADC0.CTRLC = 0x00;      // default to VDD if invalid mode
  }
 #endif 
 
 
-
-
-
-
-// fuuntion pointers for correct analogRead functions
-int16_t (*adc_read)(uint8_t pin);
-void (*adc_resolution)(uint8_t pin);
-void (*adc_sample_count)(uint8_t sample_count);
-
-
-
 // Initialize the ADC0 peripheral according to the chip type
+// ADC_TYPE1 - AVR DA, DB and DD
+// ADC_TYPE2 - AVR DU
+// ADC_TYPE3 - AVR EA, EB
 
 void init_ADC0(void) 
   {
@@ -102,19 +101,6 @@ void init_ADC0(void)
 
   }
 
-
-/*
-uint8_t prescaler;
-uint8_t left_adjust;
-uint8_t sample_number;
-uint8_t dif_mode;
-uint8_t mux_pos;
-uint8_t mux_neg;
-uint8_t init_delay;
-uint8_t samp_delay;
-uint8_t reference;
-uint8_t bit_depth;
-*/
 
 #ifdef ADC_TYPE1
 void init_ADC0_type1(void)
@@ -164,7 +150,7 @@ void init_ADC0_type1(void)
 
    // set correct function pointers
    adc_read = analogRead_type1;
-   adc_resolution = analogReadResolution1;
+   // adc_resolution = analogReadResolution1;
 
   } // end init_ADC0_type1
 #endif
@@ -213,7 +199,6 @@ int16_t analogRead_type1(uint8_t pin)
   return ADC0.RES;
 
 }
-
 #endif
 
 
@@ -287,70 +272,17 @@ void analogRead_setsample(uint8_t sample_count)
 #endif 
 
 
-/*
-void analogSampleDuration(uint8_t dur) 
-{
-    ADC0.SAMPCTRL = dur;
-}  
-
-
-
-void analogReadResolution(uint8_t res)
- {
-
-    adc_resolution(res);
-  
- }
-
-void analogReadResolution1(uint8_t res)
-{
-
-  if (res == 12) 
-     ADC0.CTRLA = (ADC0.CTRLA & (~ADC_RESSEL_gm)) | ADC_RESSEL_12BIT_gc;
-  else ADC0.CTRLA = (ADC0.CTRLA & (~ADC_RESSEL_gm)) | ADC_RESSEL_10BIT_gc;
-
-}
-
-void analogReadResolution2(uint8_t res)
-{
-
-  if (res == 12) 
-     ADC0.CTRLA = (ADC0.CTRLA & (~ADC_RESSEL_gm)) | ADC_RESSEL_12BIT_gc;
-  else ADC0.CTRLA = (ADC0.CTRLA & (~ADC_RESSEL_gm)) | ADC_RESSEL_10BIT_gc;
-
-}
-
-int8_t getAnalogReadResolution(void)
- {
-  return ((ADC0.CTRLA & (ADC_RESSEL_gm)) == ADC_RESSEL_12BIT_gc) ? 12 : 10;
-}
-
-
-inline uint8_t getAnalogSampleDuration(void)
-{
-  return ADC0.SAMPCTRL;
-}
-
-
-ADC0_status_t* read_adc_status(void)
-{
-
-    return(&adc_status);
-
-}
-*/
 
 /*
 
       ADC Type 2
       Substantial register map difference and ioavr define
-      differences in this ADC definition
-      
+      differences in this ADC definition    
 
 */
 
 #ifdef ADC_TYPE2
-void init_ADC0_type1(void)
+void init_ADC0_type2(void)
 {
 
    ADC_t* pADC;
@@ -364,14 +296,11 @@ void init_ADC0_type1(void)
    adc_config.mux_pos = 0x40;                                    // init MUXPOS to GND
    adc_config.mux_neg = 0x40;
    adc_config.samp_delay = 0x02;                               // arbitrary samp delay of 2 clock cycles
-   adc_config.init_delay = ADC_INITDLY_DLY64_gc;               // arbitrary init delay of 64 clocks
+   // adc_config.init_delay = ADC_INITDLY_DLY64_gc;               // arbitrary init delay of 64 clocks
    adc_config.reference = VDD;                  
-   adc_config.sample_number = 1;                               // single sample mode
+   adc_config.sample_number = 1;                               // single sample mode 
 
-   analogReference(VDD);                                       // analog ref set to VDD by default
-   
   // scale the ADC speed to be around 1 MHz regardless of CPU frequency
-  
    #if F_CPU >= 24000000
        pADC->CTRLB = ADC_PRESC_DIV20_gc; // 1.2 @ 24, 1.25 @ 25, 1.4 @ 28  MHz
    #elif F_CPU >= 20000000
@@ -385,62 +314,52 @@ void init_ADC0_type1(void)
    #else                              
       pADC->CTRLB = ADC_PRESC_DIV2_gc;   // 1 MHz / 2 = 500 kHz
    #endif
-       
-   // 16 ADC clock sampling time 
-   pADC->SAMPCTRL = 14; 
-      
+
+  pADC->CTRLC = ADC_REFSEL_VDD_gc;       // set VDD as reference
+
+  // disable window mode
+  pADC->CTRLD = 0x00;
+
    // VREF init delay
-   pADC->CTRLE = ADC_INITDLY_DLY64_gc; 
-     
-   /* Enable ADC in 10 bit mode */
-   pADC->CTRLA = ADC_ENABLE_bm | ADC_RESSEL_10BIT_gc;
+  pADC->CTRLE = 64;                     // arbitrary for now
+
+  // set 10 bit mode, non burst
+  pADC->COMMAND = ADC_MODE_SINGLE_10BIT_gc;
+
+
+   /* Enable ADC */ 
+  pADC->CTRLA = ADC_ENABLE_bm;
 
    // set correct function pointers
-   adc_read = analogRead_type1;
-   adc_resolution = analogReadResolution1;
+  adc_read = analogRead_type2;
+  adc_resolution = NULL;
 
   } // end init_ADC0_type1
 #endif
 
 
+// #ifdef ADC_TYPE2
+// map pin numbers to AIN positions, PA0(0) and PA1(1) not valid
+uint8_t pin_to_muxpos[25] = {255,255,22,23,24,25,26,27,31,0,1,2,3,4,5,6,7,16,17,18,19,20,21};
+// #endif
 
-
-
-
-
-// AVR DU
 #ifdef ADC_TYPE2
-int16_t analogRead_diff(uint8_t pin_plus,uint8_t pin_minus)
-{
-
-  int16_t adc_val = 0;
-
-  check_valid_analog_pin(pin_plus);
-  check_valid_negative_pin(pin_minus);
-    
-  if (pin_plus < 0x80)
-     pin_plus = digitalPinToAnalogInput(pin_plus);
-  if (pin_minus < 0x80)
-     pin_minus = digitalPinToAnalogInput(pin_minus);
+int16_t analogRead_type2(uint8_t pin)
+ {
   
-  // set ADC0 into diff mode
-  ADC0.CTRLA |= ADC_CONVMODE_DIFF_gc; 
-    
-    /* Select positive channel */
-  ADC0.MUXPOS = ((pin_plus & 0x7F) << ADC_MUXPOS_gp);
+   uint8_t mux_pos;
+   uint16_t spinlock = 0;   
+   mux_pos = pin_to_muxpos[pin];
+  /* Select channel */
+   ADC0.MUXPOS = mux_pos;
 
-  // select negative channel
-  ADC0.MUXNEG = ((pin_minus & 0x7F) << ADC_MUXNEG_gp);
- 
   /* Start conversion */
-  ADC0.COMMAND = ADC_STCONV_bm;
+   ADC0.COMMAND |= ADC_START_IMMEDIATE_gc;
 
   /* Wait for result ready */
-  while(!(ADC0.INTFLAGS & ADC_RESRDY_bm)); 
-  
-  adc_val = ADC0.RES;
-   
-  return(adc_val);     
-}
+  while(ADC0.STATUS & ADC_ADCBUSY_bm)
+    spinlock++;
 
+  return ADC0.RESULT;
+}
 #endif

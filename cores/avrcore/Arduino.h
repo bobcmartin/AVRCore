@@ -377,7 +377,9 @@ have ports shoulod have those Px constants defined as NOT_A_PORT. I think that w
 
 #if !defined(LOWLAT) // Dx-series
 // DACREFn MUXPOS currently missing from the headers!!
-#define ADC_DAC0                  ADC_CH(ADC_MUXPOS_DAC0_gc)
+#ifdef DAC0
+  #define ADC_DAC0                  ADC_CH(ADC_MUXPOS_DAC0_gc)
+#endif
 #define ADC_GROUND                ADC_CH(ADC_MUXPOS_GND_gc)
 #define ADC_DACREF0               ADC_CH(0x49)
 #ifdef AC1 // Always either 1 AC or 3 until the Ex-series
