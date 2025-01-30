@@ -96,6 +96,10 @@ Include guard and include basic libraries. We are normally including this inside
 // you must ensure that these will do what they say they will do.
 // that bit about the 4 ADC ADC channels on PORTC not worling with MVIO enabled is ugly to handle.
 
+
+
+
+
 #define analogInputToDigitalPin(p)        analogChannelToDigitalPin((p) & 0x7F) /*This assumes that the argument is NOT a digital pin number - but allows channel ID's or channel numbers. */
 #define digitalOrAnalogPinToDigital(p)    (((p) & 0x80) ? analogChannelToDigitalPin((p) & 0x7f) : (((p)<=NUM_DIGITAL_PINS) ? (p) : NOT_A_PIN)) /* This will act on either kind of pin ID but not analog channel*/
 #define portToPinZero(port)               ((port) == PA ? PIN_PA0 : ((port)== PC ? PIN_PC0 : ((port)== PD ? PIN_PD0 : ((port)== PF ? PIN_PF0 : NOT_A_PIN))))
@@ -187,7 +191,7 @@ Include guard and include basic libraries. We are normally including this inside
 #define PIN_HWSERIAL0_XDIR_PINSWAP_3    PIN_PD7
 
 // USART1
-#define HWSERIAL1_MUX                   PORTMUX_USART1_DEFAULT_gc
+#define HWSERIAL1_MUX                   PORTMUX_USART1_ALT2_gc
 #define HWSERIAL1_MUX_PINSWAP_2         PORTMUX_USART1_ALT2_gc
 #define HWSERIAL1_MUX_PINSWAP_NONE      PORTMUX_USART1_DEFAULT_gc
 #define PIN_HWSERIAL1_TX                PIN_PD6
