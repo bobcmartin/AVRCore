@@ -19,9 +19,9 @@
 #include "adc_core.h"         // config inits for ADC0
 #include <avr/pgmspace.h>
 
-// highligh current ADC TYPE
+// highligh current ADC TYPE, comment out before build
 // #define ADC_TYPE1
-// #define ADC_TYPE2
+#define ADC_TYPE2
 
 /*
 
@@ -350,7 +350,7 @@ void init_ADC0_type2(void)
   adc_read = analogRead_type2;
   adc_resolution = NULL;
 
-  } // end init_ADC0_type1
+  } // end init_ADC0_type2
 #endif
 
 
@@ -392,7 +392,11 @@ void analogRead_setsample(uint8_t sample_count)
 
 
 #ifdef ADC_TYPE2
-uint8_t pin_to_muxpos[25] = {255,255,22,23,24,25,26,27,31,0,1,2,3,4,5,6,7,16,17,18,19,20,21};
+uint8_t pin_to_muxpos[26] = 
+{
+     255,255,22,23,24,25,26,27,255,255,255,31,0,1,2,3,4,5,6,7,16,17,18,19,20,21         
+              
+};
 #endif
 
 #ifdef ADC_TYPE2
@@ -402,11 +406,14 @@ int16_t analogRead_type2(uint8_t pin)
    uint8_t mux_pos;
    uint16_t spinlock = 0;   
    mux_pos = pin_to_muxpos[pin];
+  
   /* Select channel */
    ADC0.MUXPOS = mux_pos;
 
-  /* Start conversion */
-   ADC0.COMMAND |= ADC_START_IMMEDIATE_gc;
+  /* Start conversion  with correct command*/
+  if(adc_config.sample_number > 1)  // Burst mode 10 bit
+    ADC0.COMMAND = (0x01 << 4) | 0x01;
+  else ADC0.COMMAND = (0x03 << 4) | 0x01;
 
   /* Wait for result ready */
   while(ADC0.STATUS & ADC_ADCBUSY_bm)
