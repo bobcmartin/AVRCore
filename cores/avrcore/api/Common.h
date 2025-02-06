@@ -156,6 +156,7 @@ void    analogWrite(pin_size_t pinNumber, int value);
 int16_t analogRead(uint8_t pin);
 int16_t analogRead_diff(uint8_t pin_plus,uint8_t pin_minus);
 void analogRead_setsample(uint8_t sample_count);
+void analogReference(uint8_t mode);
 
 // void    analogReference(         uint8_t mode);
 void  analogReadResolution(     uint8_t res);

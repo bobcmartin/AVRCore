@@ -24,7 +24,7 @@ typedef struct ADC0_config
     uint8_t init_delay;
     uint8_t samp_delay;
     uint8_t reference;
-    uint8_t bit_depth;
+    uint8_t resolution;
 
 } ADC0_config_t;
 

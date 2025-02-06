@@ -21,7 +21,7 @@
 
 // highligh current ADC TYPE, comment out before build
 // #define ADC_TYPE1
-#define ADC_TYPE2
+// #define ADC_TYPE2
 
 /*
 
@@ -66,20 +66,20 @@ int8_t samplenum_index[2][8] =
 
 
 
-#ifdef ADC_TYPE1
+#ifdef ADC_TYPE1 // reference set external to ADC peripheral
 void analogReference(uint8_t mode) 
-  {
+ {
       if (mode < 7 && mode != 4)
         VREF.ADC0REF = (VREF.ADC0REF & ~(VREF_REFSEL_gm))|(mode);
  }
 #endif 
 
 
-#ifdef ADC_TYPE2
+#ifdef ADC_TYPE2 // reference configuration internal to ADC
 void analogReference(uint8_t mode) 
   {
     
-    if (mode < 7 && mode != 0x01 && mode != 0x03)
+    if (mode < 8 && mode != 0x01 && mode != 0x03)
         ADC0.CTRLC = mode;
     else ADC0.CTRLC = 0x00;      // default to VDD if invalid mode
  }
@@ -132,7 +132,7 @@ void init_ADC0_type1(void)
    adc_config.init_delay = 2;
    adc_config.left_adjust = false;
    adc_config.dif_mode = false;                                // single ended mode
-   adc_config.bit_depth = 10;
+   adc_config.resolution = 10;
    adc_config.mux_pos = 0x40;                                    // init MUXPOS to GND
    adc_config.mux_neg = 0x40;
    adc_config.samp_delay = 0x02;                               // arbitrary samp delay of 2 clock cycles
@@ -201,11 +201,9 @@ int16_t analogRead_type1(uint8_t pin)
 
   // fill entries in adc_status
   adc_status.mux_plus = pin;
-  adc_status.mux_neg = 0x40;
-
 
   /* Select channel */
-  ADC0.MUXPOS = ((pin & 0x7F) << ADC_MUXPOS_gp);
+  ADC0.MUXPOS = pin;
 
   /* Start conversion */
   ADC0.COMMAND = ADC_STCONV_bm;
@@ -225,8 +223,8 @@ int16_t analogRead_diff(uint8_t pin_plus,uint8_t pin_minus)
 
   int16_t adc_val = 0;
 
-  check_valid_analog_pin(pin_plus);
-  check_valid_negative_pin(pin_minus);
+  // check_valid_analog_pin(pin_plus);
+  // check_valid_negative_pin(pin_minus);
     
   if (pin_plus < 0x80)
      pin_plus = digitalPinToAnalogInput(pin_plus);
@@ -293,8 +291,10 @@ void analogRead_setsample(uint8_t sample_count)
 /*
 
       ADC Type 2
-      Substantial register map difference and ioavr define
-      differences in this ADC definition    
+      
+      The AVR64DU has a unique ADC structure from the DA,DB and DD
+      While 8 bit mode is available only 10 bit mode suported for now
+      
 
 */
 
@@ -306,10 +306,10 @@ void init_ADC0_type2(void)
 
    pADC = &ADC0;
     
-   adc_config.init_delay = 2;
+   adc_config.init_delay = 64;
    adc_config.left_adjust = false;
    adc_config.dif_mode = false;                                // single ended mode
-   adc_config.bit_depth = 10;
+   adc_config.resolution = 10;
    adc_config.mux_pos = 0x40;                                    // init MUXPOS to GND
    adc_config.mux_neg = 0x40;
    adc_config.samp_delay = 0x02;                               // arbitrary samp delay of 2 clock cycles
@@ -385,12 +385,6 @@ void analogRead_setsample(uint8_t sample_count)
 }
 #endif 
 
-
-
-
-
-
-
 #ifdef ADC_TYPE2
 uint8_t pin_to_muxpos[26] = 
 {
@@ -411,9 +405,9 @@ int16_t analogRead_type2(uint8_t pin)
    ADC0.MUXPOS = mux_pos;
 
   /* Start conversion  with correct command*/
-  if(adc_config.sample_number > 1)  // Burst mode 10 bit
-    ADC0.COMMAND = (0x01 << 4) | 0x01;
-  else ADC0.COMMAND = (0x03 << 4) | 0x01;
+  if(adc_config.sample_number > 1)          // Burst mode 10 bit
+    ADC0.COMMAND = (0x03 << 4) | 0x01;
+  else ADC0.COMMAND = (0x01 << 4) | 0x01;
 
   /* Wait for result ready */
   while(ADC0.STATUS & ADC_ADCBUSY_bm)
