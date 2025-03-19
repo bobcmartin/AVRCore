@@ -1,6 +1,7 @@
 /*
-    configuration primative for DA/DB and DD ADC0 blocks
-    oringinal code base for DxCore / Spence Konde
+    adc_core.c - Hardware serial library for the AVR Dx family
+    This library is free software released under LGPL 2.1.
+    See License.md for more information.
 
     Bob Martin
     microchip Sept 2024

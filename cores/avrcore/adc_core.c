@@ -1,14 +1,20 @@
 /*
 
+
+  adc_core.c - Hardware serial library for the AVR Dx family
+  This library is free software released under LGPL 2.1.
+  See License.md for more information.
+
+
     functions for 
     AVR DA, AVR DB and AVR DD devices.
     All ADC blocks are the same
 
     Sept 2024
-    core code extracted from DxCore / Spence Konde
+    based from DxCore
     
-    avrcore v1.x
-    bob martin
+    avrcore v1.1
+    bob martin / Microchip 
 
 */ 
 
@@ -32,7 +38,7 @@
     AVR DU  
 
   ADC_TYPE3
-    AVR EA, EB probasbly EC as well
+    AVR EA and EB
 */
 
 
