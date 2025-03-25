@@ -1,0 +1,91 @@
+
+
+Symbols from C:\Users\c40769\AppData\Local\arduino\sketches\2BFE081DF0FBD991CBB807DF7BE60B2C/Blink_dd.ino.elf:
+
+Name                  Value   Class        Type         Size     Line  Section
+
+__heap_end          |00000000|   W  |            NOTYPE|        |     |*ABS*
+__TEXT_REGION_ORIGIN__|00000000|   W  |            NOTYPE|        |     |*ABS*
+__tmp_reg__         |00000000|   a  |            NOTYPE|        |     |*ABS*
+__vector_default    |00000000|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:61
+__vectors           |00000000|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:61
+__zero_reg__        |00000001|   a  |            NOTYPE|        |     |*ABS*
+__FUSE_REGION_LENGTH__|00000010|   A  |            NOTYPE|        |     |*ABS*
+__CCP__             |00000034|   a  |            NOTYPE|        |     |*ABS*
+__SP_L__            |0000003d|   a  |            NOTYPE|        |     |*ABS*
+__SP_H__            |0000003e|   a  |            NOTYPE|        |     |*ABS*
+__SREG__            |0000003f|   a  |            NOTYPE|        |     |*ABS*
+__ctors_end         |00000090|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+__ctors_start       |00000090|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+__dtors_end         |00000090|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+__dtors_start       |00000090|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+__init              |00000090|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+__trampolines_end   |00000090|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+__trampolines_start |00000090|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+_initThreeStuff()   |0000009c|   T  |              FUNC|00000028|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\DxCore\hardware\megaavr\1.5.11\cores\dxcore/main.cpp:183
+__do_clear_bss      |000000c4|   T  |            NOTYPE|00000010|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2441
+.do_clear_bss_loop  |000000cc|   t  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2446
+.do_clear_bss_start |000000ce|   t  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2448
+__bad_interrupt     |000000d8|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_1          |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_10         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_11         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_12         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_13         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_14         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_15         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_16         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_17         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_18         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_19         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_2          |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_20         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_21         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_22         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_23         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_24         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_25         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_26         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_27         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_28         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_29         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_3          |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_31         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_32         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_33         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_34         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_35         |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_4          |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_5          |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_6          |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_7          |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_8          |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_9          |000000d8|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+micros              |000000da|   t  |              FUNC|00000088|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\DxCore\hardware\megaavr\1.5.11\cores\dxcore/wiring.c:440
+__EEPROM_REGION_LENGTH__|00000100|   A  |            NOTYPE|        |     |*ABS*
+delay.constprop.7   |00000162|   t  |              FUNC|0000004e|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\DxCore\hardware\megaavr\1.5.11\cores\dxcore/wiring.c:1100
+digitalWrite.constprop.3|000001b0|   t  |              FUNC|0000004a|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\DxCore\hardware\megaavr\1.5.11\cores\dxcore/wiring_digital.c:227
+__vector_30         |000001fa|   T  |              FUNC|00000038|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\DxCore\hardware\megaavr\1.5.11\cores\dxcore/wiring.c:134
+main                |00000232|   T  |              FUNC|000000d0|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\DxCore\hardware\megaavr\1.5.11\cores\dxcore/main.cpp:84
+__muluhisi3         |00000302|   T  |            NOTYPE|00000014|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:626
+__umulhisi3         |00000316|   T  |            NOTYPE|0000001e|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:564
+_exit               |00000334|   T  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
+exit                |00000334|   W  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
+__stop_program      |00000336|   t  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2280
+__data_load_end     |00000338|   A  |            NOTYPE|        |     |*ABS*
+__data_load_start   |00000338|   a  |            NOTYPE|        |     |*ABS*
+_etext              |00000338|   T  |            NOTYPE|        |     |.text
+__LOCK_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
+__SIGNATURE_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
+__USER_SIGNATURE_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
+__DATA_REGION_LENGTH__|00002000|   A  |            NOTYPE|        |     |*ABS*
+__stack             |00007fff|   W  |            NOTYPE|        |     |*ABS*
+__RODATA_PM_OFFSET__|00008000|   A  |            NOTYPE|        |     |*ABS*
+__TEXT_REGION_LENGTH__|00010000|   A  |            NOTYPE|        |     |*ABS*
+__bss_start         |00806000|   B  |            NOTYPE|        |     |.bss
+__DATA_REGION_ORIGIN__|00806000|   A  |            NOTYPE|        |     |*ABS*
+_edata              |00806000|   D  |            NOTYPE|        |     |.data
+timingStruct        |00806000|   b  |            OBJECT|00000004|     |.bss	C:\Users\c40769\AppData\Local\Arduino15\packages\DxCore\hardware\megaavr\1.5.11\cores\dxcore/wiring.c:120
+__bss_end           |00806004|   B  |            NOTYPE|        |     |.bss
+_end                |00806004|   N  |            NOTYPE|        |     |.comment
+__eeprom_end        |00810000|   N  |            NOTYPE|        |     |.comment
