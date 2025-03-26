@@ -49,7 +49,7 @@ avrda.bootloader.WDTCFG=0x00
 avrda.bootloader.BODCFG={bootloader.bodlevbits}{bootloader.bodmodebits}
 avrda.bootloader.SYSCFG0=0b1100{bootloader.resetpinbits}0{bootloader.eesavebit}
 avrda.bootloader.CODESIZE=0x00
-avrda.bootloader.BOOTSIZE=0x01
+#avrda.bootloader.BOOTSIZE=0x01
 avrda.bootloader.avrdudestring=
 avrda.bootloader.pymcuprogstring=-aerase
 avrda.bootloader.appspm=
@@ -173,6 +173,15 @@ avrdb.menu.wiremode.mands2=2x Wire Client and Host
 avrdb.menu.wiremode.mands2.build.wiremode=MANDS_BOTH
 avrdb.menu.wiremode.mands2.build.wireabr=.wA2
 
+avrdb.menu.printf.default=Default, 1.5k flash, no floats
+avrdb.menu.printf.full=Full, 2.6k, prints floats
+avrdb.menu.printf.full.build.printf=-Wl,-u,vfprintf -lprintf_flt
+avrdb.menu.printf.full.build.printfabr=.pfF
+avrdb.menu.printf.minimal=Minimal, 1.1k flash used
+avrdb.menu.printf.minimal.build.printf=-Wl,-u,vfprintf -lprintf_min
+avrdb.menu.printf.minimal.build.printfabr=.pfM
+
+
 # Clock Speed + Source options
 avrdb.build.f_cpu=24000000L
 avrdb.build.speed=24
@@ -252,7 +261,6 @@ avrdd.bootloader.SYSCFG1=0b000{bootloader.mviobits}{bootloader.sutbits}
 # (Self programming Memory) SPM            
 avrdd.build.appspmabr=
 avrdd.bootloader.appspm=
-avrdd.bootloader.BOOTSIZE=0x00
 
 avrdd.bootloader.tool=avrdude
 avrdd.bootloader.WDTCFG=0x00
@@ -348,10 +356,11 @@ avrdu.build.wireabr=
 
 # Bootloading parameters and fuses       
 avrdu.bootloader.tool=avrdude
-avrdu.bootloader.WDTCFG=0x00
+
 
 ####################################################
 #   defualt safe setiings for the BOOT FUSES
+avrdu.bootloader.WDTCFG=0x00
 avrdu.bootloader.BODCFG=0x00
 avrdu.bootloader.OSCCFG=0x00
 avrdu.bootloader.SYSCFG0=0xD8
