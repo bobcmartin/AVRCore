@@ -17,7 +17,7 @@ https://github.com/SpenceKonde/DxCore
 
 Thank you Spence for all you have done to bring the new AVR devices into the Arduino development environment
 
-Bob Martinb - Wizard of Make
+Bob Martin - Wizard of Make
 January 2025
 
 ## Current Status / Updates
