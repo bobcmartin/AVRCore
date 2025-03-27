@@ -63,13 +63,13 @@ ADC0_status_t* read_adc_status(void);
 ADC0_config_t adc_config;
 ADC0_status_t adc_status;
 
-int8_t samplenum_index[2][8] = 
+
+// translate samples to bit fields
+int8_t ADC0_samplenum_index[2][8] = 
   {
       {0,1,2,3,4,5,6,7},
       {1,2,4,8,16,32,64,128}
   };
-
-
 
 
 #ifdef ADC_TYPE1 // reference set external to ADC peripheral
@@ -127,6 +127,45 @@ void init_ADC0(void)
   }
 
 
+  /* 
+  
+      Core analogRead function using 
+    
+  */
+
+  int16_t analogRead(uint8_t pin)
+  {
+  
+    uint16_t adc_val;
+  
+    adc_val = adc_read(pin);
+    if(adc_config.sample_number > 1)
+      adc_val /= (uint16_t)adc_config.sample_number;
+
+    // correct for truncation at higher sample numbers
+
+    if(adc_config.sample_number == 32)
+      adc_val *= 2;
+
+    if(adc_config.sample_number == 64)
+      adc_val *= 4;
+
+    if(adc_config.sample_number == 128)
+      adc_val *= 8;  
+  
+    return(adc_val);
+  
+  }
+
+void analogRead_Resolution(uint8_t adc_res)
+{
+
+    adc_resolution(adc_res);
+
+}
+
+
+
 #ifdef ADC_TYPE1
 void init_ADC0_type1(void)
 {
@@ -175,23 +214,29 @@ void init_ADC0_type1(void)
 
    // set correct function pointers
    adc_read = analogRead_type1;
-   // adc_resolution = analogReadResolution1;
+   adc_resolution = analogReadResolution1;
 
   } // end init_ADC0_type1
 #endif
 
-int16_t analogRead(uint8_t pin)
+
+void analogReadResolution1(uint8_t resolution)
 {
 
-  uint16_t adc_val;
-
-  adc_val = adc_read(pin);
-  if(adc_config.sample_number > 1)
-    adc_val /= (uint16_t)adc_config.sample_number;
-
-  return(adc_val);
-
+  // default to 12 bits unless 10bit requested
+  if(resolution == 10)       
+      {
+        ADC0.CTRLA &= 0xF3;
+        ADC0.CTRLA |= 0x04;
+      }
+     
+  else 
+      ADC0.CTRLA &= 0xF3;
+   
 }
+
+
+
 
 #ifdef ADC_TYPE1
 int16_t analogRead_type1(uint8_t pin)
@@ -276,8 +321,8 @@ void analogRead_setsample(uint8_t sample_count)
   for(scan_index = 0;scan_index < 8;scan_index++)
   {
 
-    if(samplenum_index[1][scan_index] == sample_count)
-      ctrlb_val = samplenum_index[0][scan_index];    // extract correct value CTRLB reg
+    if(ADC0_samplenum_index[1][scan_index] == sample_count)
+      ctrlb_val = ADC0_samplenum_index[0][scan_index];    // extract correct value CTRLB reg
   }
 
   if(ctrlb_val == 0xFF)
@@ -373,8 +418,8 @@ void analogRead_setsample(uint8_t sample_count)
     for(scan_index = 0;scan_index < 8;scan_index++)
     {
 
-      if(samplenum_index[1][scan_index] == sample_count)
-        ctrlf_val = samplenum_index[0][scan_index];    // extract correct value CTRLF value
+      if(ADC0_samplenum_index[1][scan_index] == sample_count)
+        ctrlf_val = ADC0_samplenum_index[0][scan_index];    // extract correct value CTRLF value
     }
   }
   

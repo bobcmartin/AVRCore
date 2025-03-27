@@ -682,7 +682,7 @@ void onClockTimeout() __attribute__((weak)); // called if we try to switch to ex
 //int32_t           analogReadEnh(uint8_t pin,                uint8_t res,  uint8_t gain);
 //int32_t          analogReadDiff(uint8_t pos,  uint8_t neg,  uint8_t res,  uint8_t gain);
 //int16_t        analogClockSpeed(int16_t frequency, uint8_t options);
-//bool       analogReadResolution(uint8_t res);
+void   analogRead_Resolution(uint8_t res);
 //bool       analogSampleDuration(uint8_t dur);
 //void               DACReference(uint8_t mode);
 
