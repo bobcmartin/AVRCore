@@ -20,7 +20,7 @@ menu.wiremode=Wire (Wire.h/I2C) Library mode
 avrda.name=AVR128DA48 Curiosity Nano
 avrdb.name=AVR128DB48 Curiosity Nano
 avrdd.name=AVR64DD32 Curiosity Nano
-avrdu.name=AVR64DU32 Curiosity Nano
+#avrdu.name=AVR64DU32 Curiosity Nano
 
 
 #############################################################################################
@@ -49,7 +49,7 @@ avrda.bootloader.WDTCFG=0x00
 avrda.bootloader.BODCFG={bootloader.bodlevbits}{bootloader.bodmodebits}
 avrda.bootloader.SYSCFG0=0b1100{bootloader.resetpinbits}0{bootloader.eesavebit}
 avrda.bootloader.CODESIZE=0x00
-#avrda.bootloader.BOOTSIZE=0x01
+#avrda.bootloader.BOOTSIZE=0x00
 avrda.bootloader.avrdudestring=
 avrda.bootloader.pymcuprogstring=-aerase
 avrda.bootloader.appspm=
@@ -134,7 +134,7 @@ avrdb.bootloader.SYSCFG0=0b1100{bootloader.resetpinbits}0{bootloader.eesavebit}
 avrdb.bootloader.SYSCFG1=0b000{bootloader.mviobits}{bootloader.sutbits}
 #avrdb.bootloader.SYSCFG1=0b00001{bootloader.sutbits}
 avrdb.bootloader.CODESIZE=0x00
-avrdb.bootloader.BOOTSIZE=0x01
+avrdb.bootloader.BOOTSIZE=0x00
 avrdb.bootloader.avrdudestring=
 avrdb.bootloader.pymcuprogstring=-aerase
 
@@ -245,32 +245,43 @@ avrdd.build.wireabr=
 
 ###### Bootloading parameters and fuses #######      
 
+####################################################
+#   defualt safe setiings for the BOOT FUSES
+avrdd.bootloader.WDTCFG=0x00
+avrdd.bootloader.BODCFG=0x00
+avrdd.bootloader.OSCCFG=0x00
+avrdd.bootloader.SYSCFG0=0xD8
+avrdd.bootloader.SYSCFG1=0x0E
+avrdd.bootloader.CODESIZE=0x00
+avrdd.bootloader.BOOTSIZE=0x00
+#####################################################
+
 # Reset pin (PF6) and UDPI enabled (PF7)          
-avrdd.bootloader.resetpinbits=11
+#avrdd.bootloader.resetpinbits=11
 
 # Retain EEPROM (EESAVE)                 
-avrdd.bootloader.eesavebit=1
-avrdd.bootloader.SYSCFG0=0b1100{bootloader.resetpinbits}0{bootloader.eesavebit}
+#avrdd.bootloader.eesavebit=1
+#avrdd.bootloader.SYSCFG0=0b1100{bootloader.resetpinbits}0{bootloader.eesavebit}
 
 # MVIO enabled                              
 avrdd.bootloader.mviobits=01
 # startup 8ms                 
-avrdd.bootloader.sutbits=100
-avrdd.bootloader.SYSCFG1=0b000{bootloader.mviobits}{bootloader.sutbits}
+#avrdd.bootloader.sutbits=100
+#avrdd.bootloader.SYSCFG1=0b000{bootloader.mviobits}{bootloader.sutbits}
 
 # (Self programming Memory) SPM            
 avrdd.build.appspmabr=
 avrdd.bootloader.appspm=
 
 avrdd.bootloader.tool=avrdude
-avrdd.bootloader.WDTCFG=0x00
+#avrdd.bootloader.WDTCFG=0x00
 
 # Brown Out detect
 # BOD disabled / 1.9V level
-avrdd.bootloader.BODCFG=0b00000000
+#avrdd.bootloader.BODCFG=0b00000000
 
-avrdd.bootloader.CODESIZE=0x00
-avrdd.bootloader.BOOTSIZE=0x00
+#avrdd.bootloader.CODESIZE=0x00
+#avrdd.bootloader.BOOTSIZE=0x00
 avrdd.bootloader.avrdudestring=
 avrdd.bootloader.pymcuprogstring=-aerase
 
