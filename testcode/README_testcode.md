@@ -1,6 +1,6 @@
 #  AVRCore Validation Code V1.1
 
-All three sketches are geared specifically towards demostrting the all teh basic interfaces using the perheral targets available on the Curioisiy Nano Explorer board.  The Exploer Board isn't required to compile an download the sketches but there they still remain excellent examples on general use of all thebasic functions such as GPIO (igitalWrite), Wire, SPI and Serial.  
+All three sketches are geared specifically towards demostrting the all teh basic interfaces using the perheral targets available on the Curiosity Nano Explorer board.  The Exploer Board isn't required to compile an download the sketches but there they still remain excellent examples on general use of all thebasic functions such as GPIO (igitalWrite), Wire, SPI and Serial.  
 Basic infomation about on board LEDs and default CDC Serial ports are also illustrated in the examples 
 
 

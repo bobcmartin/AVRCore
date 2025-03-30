@@ -1,6 +1,6 @@
 # AVRCore
 ## Arduino support package for the AVR Dx/Ex Curiosity Nano Development boards
-AVRCore is a fork from the DxCore AVR Dx suport spackage created by Spence Konde
+AVRCore is a fork from the `DxCore` AVR Dx support spackage created by Spence Konde
 It sinplifies the menu choices the Tools Top Level directory by predefining many of the options that are
 specific to the Curiousity Nano boards. This prevents configuration errors that may prevent a perfectly valid target sketch to compile.  
 
