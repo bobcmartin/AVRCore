@@ -44,18 +44,21 @@ There will be mini updates 1.11, 1.12 along the way as I sort out and clean up t
 
 * upcoming features
 * add AVR64DU + USB support - this is a big one
-* refactor analogWrite - dedicate TC0 or TCA1 to basic PWM tasks including Servo librray
+* refactor analogWrite - dedicate TC0 or TCA1 to basic PWM tasks including Servo library
 
 ## Validation / Test Code
 In addition to the examples already provided in the various subsystem menus there is a dedicated directory for all of the test/validation sketches used.
 All of these sketches are located in  /testcode and are targeted towards the supporting all three of the DA/DB and DD Curiosity boards
 
 ## AVRCore Support
-Every one is free to submit pull requests to me but for the first few release cycles it will probably be better to just email me directly at 
+While Every one is free to submit pull requests to me but for the first few release cycles it will probably be better to just email me directly at 
 `bob.martin@microchip.com`
 Alot of the refactoring of core function to adopt the walled garden apporach to the specific board suport definitions will be in flux for a while.  
 Please try to prefix the suject line woth "AVRCore-" so my email filter can deposit it into teh correct inbox subfolder
 
 If you want to contribute to the project please let me know, I will be more than happy to ship you a set of baords for free to help that effort along.
+
+## OS Support
+For now AVRCore is only suported on Windows. The DxCore installation has links to a wider range of compilers for the Linux and MacOs environments but are not guarenteed to work because of specific AVR Microcontroller device suport.  One of teh igger updates coming in the following year is to change teh build system such that it uses the Device Pack system used by Microchip Studio and MPLAB X which removes teh need to add specific device suport directly into the commpiler. That will all the compiler builds to focus on the AVR-GCC specific chnages rather than having to keep updating the tool chain with new device header files.
 
 
