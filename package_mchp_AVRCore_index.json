@@ -12,7 +12,7 @@
 					"architecture": "megaavr",
 					"version": "1.1",
 					"category": "Contributed",
-					"url": "https://github.com/bobcmartin/AVRCore/releases/download/v1.00/AVRCore-1.1.zip",
+					"url": "https://github.com/bobcmartin/AVRCore/releases/download/v1.1/AVRCore-1.1.zip",
 					"archiveFileName": "AVRCore-1.1.zip",
 					"checksum": "SHA-256:d586fc4af9f8354a093ab413810725613840004035dc90d7ac09ee4a8ff03ae4",
 					"size":"3866694",
