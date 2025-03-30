@@ -1,21 +1,21 @@
 # AVRCore
 ## Arduino support package for the AVR Dx/Ex Curiosity Nano Development boards
-AVRCore is a fork from the `DxCore` AVR Dx support spackage created by Spence Konde
-It sinplifies the menu choices the Tools Top Level directory by predefining many of the options that are
-specific to the Curiousity Nano boards. This prevents configuration errors that may prevent a perfectly valid target sketch to compile.  
+AVRCore is a fork from the `DxCore` AVR Dx support package created by Spence Konde
+It simplifies the menu choices the Tools Top Level directory by predefining many of the options that are
+specific to the Curiosity Nano boards. This prevents configuration errors that may prevent a perfectly valid target sketch to compile.  
 
 
 The DxCore package is geared towards every specific AVR Dx or Ex part that is available  and presents a large number of options that allows customization to a very specific device.  
 
 There are even options presented, such as clock speed that exceed the operational specification of the AVR parts themselves which have also been removed from AVRCore.
 
-A large amount of effort has been made to maintain the standard Arduino API there are some differences specifically relating to how the  enhanced functions of peripheral like the ADC and PWM (analogWrite) that will be tuned specically to the Curisity Nano boards themselves. 
+A large amount of effort has been made to maintain the standard Arduino API there are some differences specifically relating to how the  enhanced functions of peripheral like the ADC and PWM (analogWrite) that will be tuned specifically to the Curiosity Nano boards themselves. 
 
-Optiboot supoprt has been removed in AVRCore, not that there is anything wrong with Optiboot but every Curisity Nano board comes equipped with it's own programmer / debugger so there's no need for a bootloader and the flash space it uses.
+Optiboot support has been removed in AVRCore, not that there is anything wrong with Optiboot but every Curiosity Nano board comes equipped with it's own programmer / debugger so there's no need for a bootloader and the flash space it uses.
 
 
 ## Acknowledgements 
-None of the AVRCore package would be possible without the incredible work and passion provided by Spence Konde which provided the solid base for all the code contained in AVRCore with the majority of the unchanged from the orininal. Go visit his Tindie store and buy some cool stuff.
+None of the AVRCore package would be possible without the incredible work and passion provided by Spence Konde which provided the solid base for all the code contained in AVRCore with the majority of the unchanged from the original. Go visit his Tindie store and buy some cool stuff.
 
 `https://github.com/SpenceKonde/DxCore`
 
@@ -25,9 +25,9 @@ Bob Martin - Wizard of Make
 March 2025
 
 ## Update Cycle
-The intent is to have major updates on a quaterly cycle (3 months).  Latest code will always be available on the master branch but there are no guarentees that the code will work or even compile correctly.
+The intent is to have major updates on a quarterly cycle (3 months).  Latest code will always be available on the master branch but there are no guarentees that the code will work or even compile correctly.
 
-No more than two versions will be available in the offical install package.  This will help simplfying pull requests and issue reporting to three sources, last release, current release and master branch.
+No more than two versions will be available in the official install package.  This will help simplifying pull requests and issue reporting to three sources, last release, current release and master branch.
 
 ## Current Status / Version Updates
 
@@ -53,12 +53,11 @@ All of these sketches are located in  /testcode and are targeted towards the sup
 ## AVRCore Support
 While Every one is free to submit pull requests to me but for the first few release cycles it will probably be better to just email me directly at 
 `bob.martin@microchip.com`
-Alot of the refactoring of core function to adopt the walled garden apporach to the specific board suport definitions will be in flux for a while.  
-Please try to prefix the suject line woth "AVRCore-" so my email filter can deposit it into teh correct inbox subfolder
+Please try to prefix the subject line with "AVRCore-" so my email filter can deposit it into the correct inbox subfolder
 
-If you want to contribute to the project please let me know, I will be more than happy to ship you a set of baords for free to help that effort along.
+If you want to contribute to the project please let me know, I will be more than happy to ship you a set of boards for free to help that effort along.
 
 ## OS Support
-For now AVRCore is only suported on Windows. The DxCore installation has links to a wider range of compilers for the Linux and MacOs environments but are not guarenteed to work because of specific AVR Microcontroller device suport.  One of teh igger updates coming in the following year is to change teh build system such that it uses the Device Pack system used by Microchip Studio and MPLAB X which removes teh need to add specific device suport directly into the commpiler. That will all the compiler builds to focus on the AVR-GCC specific chnages rather than having to keep updating the tool chain with new device header files.
+For now AVRCore is only supported on Windows. The DxCore installation has links to a wider range of compilers for the Linux and MacOs environments but are not guaranteed to work because of specific AVR Microcontroller device support.  One of the bigger updates coming in the following year is to change teh build system such that it uses the Device Pack system used by Microchip Studio and MPLAB X which removes teh need to add specific device support directly into the compiler. That will all the compiler builds to focus on the AVR-GCC specific changes rather than having to keep updating the tool chain with new device header files.
 
 

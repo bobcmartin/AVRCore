@@ -16,7 +16,7 @@ which needs to be added to the File -> Preferences -> Additional boards manegr U
 
 Then using the Boards Manager search for ACRCore and install the package
 
-The folloing three boards wil now be available in the Boards menu
+The following three boards wil now be available in the Boards menu
 
 * AVR128DA48 Curiosity Nano
 * AVR128DB48 Curiosity Nano
