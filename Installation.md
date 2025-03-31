@@ -14,7 +14,7 @@ The boards manager URL is
 
 which needs to be added to the File -> Preferences -> Additional boards manegr URLs
 
-Then using the Boards Manager search for ACRCore and install the package
+Then using the Boards Manager search for AVRCore and install the package
 
 The following three boards wil now be available in the Boards menu
 
