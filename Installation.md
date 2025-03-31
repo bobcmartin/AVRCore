@@ -9,8 +9,8 @@ DxCore requires a version of the IDE not earlier than 1.8.13 for best results, a
 This board package can be installed via the board manager. 
 
 The boards manager URL is 
+`https://raw.githubusercontent.com/bobcmartin/AVRCore/refs/heads/package_install/package_mchp_AVRCore_index.json`
 
-`https://github.com/bobcmartin/AVRCore/blob/package_install/package_mchp_AVRCore_index.json`
 
 which needs to be added to the File -> Preferences -> Additional boards manegr URLs
 
