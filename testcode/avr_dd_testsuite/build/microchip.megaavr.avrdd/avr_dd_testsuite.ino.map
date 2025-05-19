@@ -1,0 +1,305 @@
+
+
+Symbols from C:\Users\c40769\AppData\Local\arduino\sketches\AE2793EB58938CDDEA48F57C9220A6DC/avr_dd_testsuite.ino.elf:
+
+Name                  Value   Class        Type         Size     Line  Section
+
+__heap_end          |00000000|   W  |            NOTYPE|        |     |*ABS*
+__TEXT_REGION_ORIGIN__|00000000|   W  |            NOTYPE|        |     |*ABS*
+__tmp_reg__         |00000000|   a  |            NOTYPE|        |     |*ABS*
+__tmp_reg__         |00000000|   a  |            NOTYPE|        |     |*ABS*
+__tmp_reg__         |00000000|   a  |            NOTYPE|        |     |*ABS*
+__tmp_reg__         |00000000|   a  |            NOTYPE|        |     |*ABS*
+__tmp_reg__         |00000000|   a  |            NOTYPE|        |     |*ABS*
+__tmp_reg__         |00000000|   a  |            NOTYPE|        |     |*ABS*
+__vector_default    |00000000|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:61
+__vectors           |00000000|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:61
+__zero_reg__        |00000001|   a  |            NOTYPE|        |     |*ABS*
+__zero_reg__        |00000001|   a  |            NOTYPE|        |     |*ABS*
+__zero_reg__        |00000001|   a  |            NOTYPE|        |     |*ABS*
+__zero_reg__        |00000001|   a  |            NOTYPE|        |     |*ABS*
+__zero_reg__        |00000001|   a  |            NOTYPE|        |     |*ABS*
+__zero_reg__        |00000001|   a  |            NOTYPE|        |     |*ABS*
+__FUSE_REGION_LENGTH__|00000010|   A  |            NOTYPE|        |     |*ABS*
+__CCP__             |00000034|   a  |            NOTYPE|        |     |*ABS*
+__CCP__             |00000034|   a  |            NOTYPE|        |     |*ABS*
+__CCP__             |00000034|   a  |            NOTYPE|        |     |*ABS*
+__CCP__             |00000034|   a  |            NOTYPE|        |     |*ABS*
+__CCP__             |00000034|   a  |            NOTYPE|        |     |*ABS*
+__CCP__             |00000034|   a  |            NOTYPE|        |     |*ABS*
+__SP_L__            |0000003d|   a  |            NOTYPE|        |     |*ABS*
+__SP_L__            |0000003d|   a  |            NOTYPE|        |     |*ABS*
+__SP_L__            |0000003d|   a  |            NOTYPE|        |     |*ABS*
+__SP_L__            |0000003d|   a  |            NOTYPE|        |     |*ABS*
+__SP_L__            |0000003d|   a  |            NOTYPE|        |     |*ABS*
+__SP_L__            |0000003d|   a  |            NOTYPE|        |     |*ABS*
+__SP_H__            |0000003e|   a  |            NOTYPE|        |     |*ABS*
+__SP_H__            |0000003e|   a  |            NOTYPE|        |     |*ABS*
+__SP_H__            |0000003e|   a  |            NOTYPE|        |     |*ABS*
+__SP_H__            |0000003e|   a  |            NOTYPE|        |     |*ABS*
+__SP_H__            |0000003e|   a  |            NOTYPE|        |     |*ABS*
+__SP_H__            |0000003e|   a  |            NOTYPE|        |     |*ABS*
+__SREG__            |0000003f|   a  |            NOTYPE|        |     |*ABS*
+__SREG__            |0000003f|   a  |            NOTYPE|        |     |*ABS*
+__SREG__            |0000003f|   a  |            NOTYPE|        |     |*ABS*
+__SREG__            |0000003f|   a  |            NOTYPE|        |     |*ABS*
+__SREG__            |0000003f|   a  |            NOTYPE|        |     |*ABS*
+__SREG__            |0000003f|   a  |            NOTYPE|        |     |*ABS*
+__trampolines_end   |00000090|   T  |            NOTYPE|        |     |.text
+__trampolines_start |00000090|   T  |            NOTYPE|        |     |.text
+Adafruit_SSD1306::drawFastVLineInternal(int, int, int, unsigned int)::postmask|00000090|   t  |            OBJECT|00000008|     |.text
+Adafruit_SSD1306::drawFastVLineInternal(int, int, int, unsigned int)::premask|00000098|   t  |            OBJECT|00000008|     |.text
+font                |000000a0|   t  |            OBJECT|00000500|     |.text
+__EEPROM_REGION_LENGTH__|00000100|   A  |            NOTYPE|        |     |*ABS*
+__LOCK_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
+__SIGNATURE_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
+__USER_SIGNATURE_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
+Adafruit_SSD1306::begin(unsigned char, unsigned char, bool, bool)::init5|000005a0|   t  |            OBJECT|00000006|     |.text
+Adafruit_SSD1306::begin(unsigned char, unsigned char, bool, bool)::init3|000005a6|   t  |            OBJECT|00000004|     |.text
+Adafruit_SSD1306::begin(unsigned char, unsigned char, bool, bool)::init2|000005aa|   t  |            OBJECT|00000004|     |.text
+Adafruit_SSD1306::begin(unsigned char, unsigned char, bool, bool)::init1|000005ae|   t  |            OBJECT|00000004|     |.text
+splash2_data        |000005b2|   t  |            OBJECT|000001e0|     |.text
+splash1_data        |00000792|   t  |            OBJECT|000002c0|     |.text
+oled_init()::__c    |00000a52|   t  |            OBJECT|0000001a|     |.text
+setup::__c          |00000a6c|   t  |            OBJECT|00000023|     |.text
+Adafruit_SSD1306::display()::dlist1|00000a8f|   t  |            OBJECT|00000005|     |.text
+meatball            |00000a94|   t  |            OBJECT|00000165|     |.text
+_usart0_pins        |00000bf9|   t  |            OBJECT|00000012|     |.text
+__ctors_start       |00000c0c|   T  |            NOTYPE|        |     |.text
+__ctors_end         |00000c0e|   T  |            NOTYPE|        |     |.text
+__dtors_start       |00000c0e|   T  |            NOTYPE|        |     |.text
+__dtors_end         |00000c10|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+__init              |00000c10|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+_initThreeStuff()   |00000c1c|   T  |              FUNC|00000018|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/main.cpp:183
+__do_copy_data      |00000c34|   T  |            NOTYPE|00000016|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2409
+__do_clear_bss      |00000c4a|   T  |            NOTYPE|00000010|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2441
+.do_clear_bss_loop  |00000c52|   t  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2446
+.do_clear_bss_start |00000c54|   t  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2448
+__do_global_ctors   |00000c5a|   T  |            NOTYPE|00000016|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2466
+__bad_interrupt     |00000c78|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_1          |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_10         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_11         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_12         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_13         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_14         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_15         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_16         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_17         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_19         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_2          |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_20         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_24         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_25         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_26         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_27         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_28         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_29         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_3          |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_31         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_32         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_33         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_34         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_35         |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_4          |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_5          |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_6          |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_7          |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_8          |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_9          |00000c78|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+SPIClass::transfer(unsigned char) [clone .constprop.53]|00000c7a|   t  |              FUNC|00000014|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\SPI\src/SPI.cpp:600
+Adafruit_GFX::startWrite()|00000c8e|   t  |              FUNC|00000002|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:180
+Adafruit_GFX::endWrite()|00000c8e|   t  |              FUNC|00000002|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:180
+_delayMicroseconds  |00000c90|   t  |              FUNC|00000022|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/wiring.c:1203
+micros              |00000cb2|   t  |              FUNC|0000008a|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/wiring.c:440
+tinyNeoPixel::show(unsigned int) [clone .constprop.13]|00000d3c|   t  |              FUNC|0000010a|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\tinyNeoPixel/tinyNeoPixel.cpp:126
+_head24             |00000de8|   t  |            NOTYPE|        |     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\tinyNeoPixel/tinyNeoPixel.cpp:831
+_seconddelay24      |00000e04|   t  |            NOTYPE|        |     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\tinyNeoPixel/tinyNeoPixel.cpp:831
+_thirddelay24       |00000e08|   t  |            NOTYPE|        |     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\tinyNeoPixel/tinyNeoPixel.cpp:831
+_nextbyte24         |00000e0c|   t  |            NOTYPE|        |     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\tinyNeoPixel/tinyNeoPixel.cpp:831
+delay               |00000e46|   t  |              FUNC|00000046|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/wiring.c:1100
+millis              |00000e8c|   t  |              FUNC|00000018|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/wiring.c:376
+analogRead_type1    |00000ea4|   t  |              FUNC|0000004e|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/adc_core.c:242
+Print::write(unsigned char const*, unsigned int)|00000ef2|   t  |              FUNC|0000005a|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore\api/Print.cpp:29
+analogReadResolution1|00000f4c|   t  |              FUNC|00000022|     |.text
+analogRead          |00000f6e|   t  |              FUNC|00000038|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/adc_core.c:136
+HardwareSerial::availableForWrite()|00000fa6|   t  |              FUNC|0000001e|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:728
+HardwareSerial::read()|00000fc4|   t  |              FUNC|00000028|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:712
+HardwareSerial::peek()|00000fec|   t  |              FUNC|0000001c|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:704
+HardwareSerial::available()|00001008|   t  |              FUNC|00000018|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:700
+HardwareSerial::_poll_tx_data_empty()|00001020|   t  |              FUNC|0000003c|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:427
+_poll_dre_done      |0000105a|   t  |            NOTYPE|        |     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:475
+HardwareSerial::write(unsigned char)|0000105c|   t  |              FUNC|00000098|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:768
+HardwareSerial::flush()|000010f4|   t  |              FUNC|00000028|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:737
+TWI_MasterSetBaud.part.3|0000111c|   t  |              FUNC|000000b0|     |.text
+TWI_MasterWrite     |000011cc|   t  |              FUNC|000000a6|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\Wire\src/twi.c:298
+TwoWire::flush()    |00001272|   t  |              FUNC|0000001a|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\Wire\src/twi.c:130
+TwoWire::peek()     |0000128c|   t  |              FUNC|00000028|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\Wire\src/Wire.cpp:726
+TwoWire::read()     |000012b4|   t  |              FUNC|00000026|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\Wire\src/Wire.cpp:635
+TwoWire::available()|000012da|   t  |              FUNC|0000000c|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\Wire\src/Wire.cpp:603
+TwoWire::write(unsigned char)|000012e6|   t  |              FUNC|00000024|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\Wire\src/Wire.cpp:536
+TwoWire::write(unsigned char const*, unsigned int)|0000130a|   t  |              FUNC|00000046|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\Wire\src/Wire.cpp:579
+Adafruit_SPIDevice::transfer(unsigned char)|00001350|   t  |              FUNC|0000017c|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_BusIO/Adafruit_SPIDevice.cpp:273
+Adafruit_I2CDevice::write(unsigned char const*, unsigned int, bool, unsigned char const*, unsigned int) [clone .part.1]|000014cc|   t  |              FUNC|00000046|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_BusIO/Adafruit_I2CDevice.cpp:102
+Adafruit_GFX::invertDisplay(bool)|00001512|   t  |              FUNC|00000002|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:1543
+Adafruit_GFX::setRotation(unsigned char)|00001514|   t  |              FUNC|0000002a|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:1316
+Adafruit_GFX::drawChar(int, int, unsigned char, unsigned int, unsigned int, unsigned char, unsigned char)|0000153e|   t  |              FUNC|00000438|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:1136
+Adafruit_GFX::write(unsigned char)|00001976|   t  |              FUNC|000001a0|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:1242
+Adafruit_GFX::drawRect(int, int, int, int, unsigned int)|00001b16|   t  |              FUNC|000000be|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:524
+Adafruit_GFX::drawLine(int, int, int, int, unsigned int)|00001bd4|   t  |              FUNC|000000f0|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:331
+Adafruit_GFX::fillScreen(unsigned int)|00001cc4|   t  |              FUNC|0000003a|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:316
+Adafruit_GFX::fillRect(int, int, int, int, unsigned int)|00001cfe|   t  |              FUNC|0000008a|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:301
+Adafruit_GFX::drawFastHLine(int, int, int, unsigned int)|00001d88|   t  |              FUNC|00000072|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:283
+Adafruit_GFX::drawFastVLine(int, int, int, unsigned int)|00001dfa|   t  |              FUNC|00000072|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:266
+Adafruit_GFX::writeFillRect(int, int, int, int, unsigned int)|00001e6c|   t  |              FUNC|00000020|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:242
+Adafruit_GFX::writeFastHLine(int, int, int, unsigned int)|00001e8c|   t  |              FUNC|00000018|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:223
+Adafruit_GFX::writeFastVLine(int, int, int, unsigned int)|00001ea4|   t  |              FUNC|00000018|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:205
+Adafruit_GFX::writePixel(int, int, unsigned int)|00001ebc|   t  |              FUNC|0000000e|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:191
+Adafruit_GFX::drawBitmap(int, int, unsigned char const*, int, int, unsigned int) [clone .constprop.48]|00001eca|   t  |              FUNC|000000e2|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:717
+Adafruit_GFX::writeLine(int, int, int, int, unsigned int)|00001fac|   t  |              FUNC|00000154|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_GFX_Library/Adafruit_GFX.cpp:133
+__DATA_REGION_LENGTH__|00002000|   A  |            NOTYPE|        |     |*ABS*
+Adafruit_SSD1306::drawFastVLineInternal(int, int, int, unsigned int) [clone .part.8]|00002100|   t  |              FUNC|0000015e|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_SSD1306/Adafruit_SSD1306.cpp:847
+Adafruit_SSD1306::drawFastHLineInternal(int, int, int, unsigned int) [clone .part.7]|0000225e|   t  |              FUNC|000000d0|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_SSD1306/Adafruit_SSD1306.cpp:748
+Adafruit_SSD1306::drawFastVLine(int, int, int, unsigned int)|0000232e|   t  |              FUNC|0000008e|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_SSD1306/Adafruit_SSD1306.cpp:800
+Adafruit_SSD1306::drawFastHLine(int, int, int, unsigned int)|000023bc|   t  |              FUNC|0000008a|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_SSD1306/Adafruit_SSD1306.cpp:700
+Adafruit_SSD1306::drawPixel(int, int, unsigned int)|00002446|   t  |              FUNC|0000015e|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_SSD1306/Adafruit_SSD1306.cpp:641
+TwoWire::endTransmission()|000025a4|   t  |              FUNC|00000008|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\Wire\src/Wire.cpp:518
+Print::flush()      |000025ac|   t  |              FUNC|00000002|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore\api/Print.h:95
+Print::availableForWrite()|000025ae|   t  |              FUNC|00000006|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore\api/Print.h:65
+SPIClass::endTransaction()|000025b4|   t  |              FUNC|00000016|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\SPI\src/SPI.cpp:563
+SPIClass::beginTransaction(SPISettings)|000025ca|   t  |              FUNC|0000001c|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\SPI\src/SPI.cpp:554
+SPIClass::begin()   |000025e6|   t  |              FUNC|0000008e|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\SPI\src/SPI.cpp:332
+Adafruit_SSD1306::clearDisplay() [clone .constprop.47]|00002674|   t  |              FUNC|00000040|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_SSD1306/Adafruit_SSD1306.cpp:680
+digitalWrite        |000026b4|   t  |              FUNC|000001a4|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/wiring_digital.c:209
+Adafruit_SPIDevice::endTransactionWithDeassertingCS()|00002858|   t  |              FUNC|00000024|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_BusIO/Adafruit_SPIDevice.cpp:327
+Adafruit_SPIDevice::beginTransactionWithAssertingCS()|0000287c|   t  |              FUNC|0000002c|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_BusIO/Adafruit_SPIDevice.cpp:318
+Adafruit_SPIDevice::write_then_read(unsigned char const*, unsigned int, unsigned char*, unsigned int, unsigned char) [clone .constprop.42]|000028a8|   t  |              FUNC|00000074|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_BusIO/Adafruit_SPIDevice.cpp:438
+Adafruit_SPIDevice::write(unsigned char const*, unsigned int, unsigned char const*, unsigned int)|0000291c|   t  |              FUNC|00000072|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_BusIO/Adafruit_SPIDevice.cpp:345
+TWI_MasterSetBaud   |0000298e|   t  |              FUNC|0000001a|     |.text
+TWI_MasterInit.part.4|000029a8|   t  |              FUNC|00000032|     |.text
+TwoWire::beginTransmission(unsigned char)|000029da|   t  |              FUNC|0000000a|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\Wire\src/Wire.cpp:484
+Adafruit_SSD1306::ssd1306_commandList(unsigned char const*, unsigned char) [clone .constprop.49]|000029e4|   t  |              FUNC|00000150|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_SSD1306/Adafruit_SSD1306.cpp:416
+Adafruit_MCP23008::write8(unsigned char, unsigned char) [clone .constprop.35]|00002b34|   t  |              FUNC|000000f8|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_MCP23008_library/Adafruit_MCP23008.cpp:181
+Adafruit_MCP23008::read8(unsigned char) [clone .constprop.38]|00002c2c|   t  |              FUNC|00000206|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_MCP23008_library/Adafruit_MCP23008.cpp:176
+Adafruit_I2CDevice::detected()|00002e32|   t  |              FUNC|0000004c|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_BusIO/Adafruit_I2CDevice.cpp:64
+Adafruit_SSD1306::ssd1306_command1(unsigned char)|00002e7e|   t  |              FUNC|000000b6|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_SSD1306/Adafruit_SSD1306.cpp:392
+Adafruit_SSD1306::invertDisplay(bool)|00002f34|   t  |              FUNC|00000084|     |.text	c:\Users\c40769\Documents\Arduino\libraries\Adafruit_SSD1306/Adafruit_SSD1306.cpp:1164
+Print::write(char const*) [clone .part.2] [clone .constprop.57]|00002fb8|   t  |              FUNC|0000001a|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore\api/Print.h:56
+Print::println(__FlashStringHelper const*) [clone .constprop.54]|00002fd2|   t  |              FUNC|0000003e|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore\api/Print.cpp:113
+Print::println(char const*) [clone .constprop.25]|00003010|   t  |              FUNC|00000018|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore\api/Print.cpp:133
+__cxa_pure_virtual  |00003028|   t  |              FUNC|00000004|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/abi.cpp:24
+__vector_30         |0000302c|   T  |              FUNC|00000038|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/wiring.c:134
+__vector_22         |00003064|   T  |              FUNC|0000000c|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART0.cpp:114
+__vector_21         |00003070|   T  |              FUNC|0000000c|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART0.cpp:91
+__vector_23         |0000307c|   T  |              FUNC|0000000a|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART0.cpp:55
+_do_dre             |00003086|   t  |            NOTYPE|        |     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART0.cpp:66
+_do_dre()           |00003086|   T  |              FUNC|0000005e|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:304
+_poll_dre           |00003096|   t  |            NOTYPE|        |     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:388
+_done_dre_irq       |000030c4|   t  |            NOTYPE|        |     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:388
+_do_rxc             |000030e4|   t  |            NOTYPE|        |     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:388
+_do_rxc()           |000030e4|   T  |              FUNC|00000060|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:174
+_end_rxc            |00003128|   t  |            NOTYPE|        |     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:252
+_buff_full_rxc      |00003140|   t  |            NOTYPE|        |     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:252
+_do_txc             |00003144|   t  |            NOTYPE|        |     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:252
+_do_txc()           |00003144|   T  |              FUNC|00000032|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:91
+_txc_flush_rx       |00003156|   t  |            NOTYPE|        |     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART.cpp:127
+__vector_18         |00003176|   T  |              FUNC|0000014c|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\Wire\src/Wire.cpp:977
+SPISettings::SPISettings()|000032c2|   t  |              FUNC|00000048|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\Wire\src/twi.c:562
+SPISettings::SPISettings()|000032c2|   t  |              FUNC|00000048|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\Wire\src/twi.c:562
+global constructors keyed to 65535_0_avr_dd_testsuite.ino.cpp.o.5500|0000330a|   t  |              FUNC|00000242|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\SPI\src/SPI.h:193
+main                |0000354c|   T  |              FUNC|00001008|     |.text	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/main.cpp:84
+_GLOBAL__sub_D_sine_wave|00004554|   t  |              FUNC|0000008a|     |.text
+random_r            |000045de|   T  |              FUNC|00000092|     |.text
+random              |00004670|   T  |              FUNC|00000098|     |.text
+srandom             |00004708|   T  |              FUNC|00000012|     |.text
+vfprintf            |0000471a|   T  |              FUNC|00000396|     |.text
+strnlen_P           |00004ab0|   T  |              FUNC|00000016|     |.text
+strnlen             |00004ac6|   T  |              FUNC|00000016|     |.text
+fputc               |00004adc|   T  |              FUNC|00000060|     |.text
+__ultoa_invert      |00004b3c|   T  |              FUNC|000000bc|     |.text
+__divmodsi4         |00004bf8|   T  |            NOTYPE|00000028|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1686
+__divmodsi4_neg2    |00004c10|   t  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1701
+__divmodsi4_exit    |00004c1e|   t  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1709
+__negsi2            |00004c20|   T  |            NOTYPE|00000010|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1718
+__muluhisi3         |00004c30|   T  |            NOTYPE|00000014|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:626
+__mulshisi3         |00004c44|   T  |            NOTYPE|00000004|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:603
+__mulohisi3         |00004c48|   T  |            NOTYPE|00000008|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:613
+__prologue_saves__  |00004c50|   T  |            NOTYPE|00000032|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:617
+__epilogue_restores__|00004c82|   T  |            NOTYPE|00000030|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2222
+__udivmodsi4        |00004cb2|   T  |            NOTYPE|00000044|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1638
+__udivmodsi4_loop   |00004cbe|   t  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1646
+__udivmodsi4_ep     |00004cd8|   t  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1660
+__umulhisi3         |00004cf6|   T  |            NOTYPE|0000001e|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:564
+__udivmodhi4        |00004d14|   T  |            NOTYPE|00000028|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1408
+__udivmodhi4_loop   |00004d1c|   t  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1413
+__udivmodhi4_ep     |00004d2a|   t  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1421
+__tablejump2__      |00004d3c|   T  |            NOTYPE|0000000c|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2296
+malloc              |00004d48|   T  |              FUNC|00000138|     |.text
+free                |00004e80|   T  |              FUNC|00000112|     |.text
+abort               |00004f92|   T  |              FUNC|00000008|     |.text
+memset              |00004f9a|   T  |              FUNC|0000000e|     |.text
+sprintf             |00004fa8|   T  |              FUNC|00000040|     |.text
+__do_global_dtors   |00004fe8|   T  |            NOTYPE|00000014|     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2496
+_exit               |00004fe8|   T  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2496
+exit                |00004fe8|   W  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2496
+__stop_program      |00004ffe|   t  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special-master/gcc-build/avr/avrxmega2/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2280
+__data_load_start   |00005000|   A  |            NOTYPE|        |     |*ABS*
+_etext              |00005000|   T  |            NOTYPE|        |     |.text
+__data_load_end     |0000530a|   A  |            NOTYPE|        |     |*ABS*
+__stack             |00007fff|   W  |            NOTYPE|        |     |*ABS*
+__RODATA_PM_OFFSET__|00008000|   A  |            NOTYPE|        |     |*ABS*
+__TEXT_REGION_LENGTH__|00010000|   A  |            NOTYPE|        |     |*ABS*
+__DATA_REGION_ORIGIN__|00806000|   A  |            NOTYPE|        |     |*ABS*
+__data_start        |00806000|   D  |            NOTYPE|        |     |.data
+cylon()::led_dir    |00806000|   d  |            OBJECT|00000001|     |.data
+meatball_drop()::y_pos|00806001|   d  |            OBJECT|00000001|     |.data
+next                |00806002|   d  |            OBJECT|00000004|     |.data
+__malloc_heap_end   |00806006|   D  |            OBJECT|00000002|     |.data
+__malloc_heap_start |00806008|   D  |            OBJECT|00000002|     |.data
+__malloc_margin     |0080600a|   D  |            OBJECT|00000002|     |.data
+ADC0_samplenum_index|0080600c|   d  |            OBJECT|00000010|     |.data	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/adc_core.c:68
+color_grid          |0080601c|   d  |            OBJECT|0000000c|     |.data	C:\Users\c40769\active_projects\AVRCore\AVRCore\testcode\avr_dd_testsuite/avr_dd_testsuite.ino:288
+sine_wave           |00806028|   d  |            OBJECT|0000018e|     |.data	C:\Users\c40769\active_projects\AVRCore\AVRCore\testcode\avr_dd_testsuite/sine_wave.h:3
+digital_pin_to_timer|008061b6|   d  |            OBJECT|0000001c|     |.data	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\variants\32pin-ddseries/pins_arduino.h:467
+vtable for HardwareSerial|008061d2|   d  |            OBJECT|00000012|     |.data
+vtable for TwoWire  |008061e4|   d  |            OBJECT|00000012|     |.data
+digital_pin_to_bit_position|008061f6|   d  |            OBJECT|0000001c|     |.data	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\variants\32pin-ddseries/pins_arduino.h:389
+digital_pin_to_bit_mask|00806212|   d  |            OBJECT|0000001c|     |.data	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\variants\32pin-ddseries/pins_arduino.h:428
+digital_pin_to_port |0080622e|   d  |            OBJECT|0000001c|     |.data	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\variants\32pin-ddseries/pins_arduino.h:357
+vtable for Adafruit_SSD1306|0080624a|   d  |            OBJECT|0000002c|     |.data
+__bss_start         |0080630a|   B  |            NOTYPE|        |     |.bss
+__data_end          |0080630a|   D  |            NOTYPE|        |     |.data
+_edata              |0080630a|   D  |            NOTYPE|        |     |.data
+sleepStack          |0080630a|   b  |            OBJECT|00000001|     |.bss	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\Wire\src/twi.c:33
+adc_read            |0080630b|   b  |            OBJECT|00000002|     |.bss	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/adc_core.c:47
+sys_blink()::led_time_last|0080630d|   b  |            OBJECT|00000004|     |.bss
+sys_blink()::led_state|00806311|   b  |            OBJECT|00000001|     |.bss
+adc_resolution      |00806312|   b  |            OBJECT|00000002|     |.bss	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/adc_core.c:48
+adc_config          |00806314|   b  |            OBJECT|0000000a|     |.bss	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/adc_core.c:63
+uart_str            |0080631e|   b  |            OBJECT|00000050|     |.bss	C:\Users\c40769\active_projects\AVRCore\AVRCore\testcode\avr_dd_testsuite/avr_dd_testsuite.ino:64
+scan_adc_channels()::scan_count|0080636e|   b  |            OBJECT|00000004|     |.bss
+scan_adc_channels()::last_scan_time|00806372|   b  |            OBJECT|00000004|     |.bss
+cylon()::led_index  |00806376|   b  |            OBJECT|00000001|     |.bss
+cylon()::led_state  |00806377|   b  |            OBJECT|00000001|     |.bss
+cylon()::cylon_timer|00806378|   b  |            OBJECT|00000004|     |.bss
+ring_chase()::pixel_index|0080637c|   b  |            OBJECT|00000001|     |.bss
+ring_chase()::color_index|0080637d|   b  |            OBJECT|00000001|     |.bss
+ring_chase()::ring_timer|0080637e|   b  |            OBJECT|00000004|     |.bss
+meatball_drop()::meatball_timer|00806382|   b  |            OBJECT|00000004|     |.bss
+meatball_drop()::x_pos|00806386|   b  |            OBJECT|00000001|     |.bss
+guard variable for meatball_drop()::x_pos|00806387|   b  |            OBJECT|00000008|     |.bss
+dac_test()::last_beep_time|0080638f|   b  |            OBJECT|00000004|     |.bss
+timingStruct        |00806393|   b  |            OBJECT|00000004|     |.bss	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/wiring.c:120
+Serial0             |00806397|   b  |            OBJECT|00000093|     |.bss	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\cores\avrcore/UART0.cpp:130
+SPI                 |0080642a|   b  |            OBJECT|0000000b|     |.bss	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\SPI\src/SPI.cpp:638
+DEFAULT_SPI_SETTINGS|00806435|   b  |            OBJECT|00000002|     |.bss
+mcp_leds            |00806437|   b  |            OBJECT|00000003|     |.bss	C:\Users\c40769\active_projects\AVRCore\AVRCore\testcode\avr_dd_testsuite/avr_dd_testsuite.ino:61
+pixel_ring          |0080643a|   b  |            OBJECT|00000016|     |.bss	C:\Users\c40769\active_projects\AVRCore\AVRCore\testcode\avr_dd_testsuite/avr_dd_testsuite.ino:59
+Wire                |00806450|   b  |            OBJECT|00000119|     |.bss	C:\Users\c40769\AppData\Local\Arduino15\packages\microchip\hardware\megaavr\1.1\libraries\Wire\src/Wire.cpp:998
+display             |00806569|   b  |            OBJECT|00000040|     |.bss	C:\Users\c40769\active_projects\AVRCore\AVRCore\testcode\avr_dd_testsuite/avr_dd_testsuite.ino:56
+__brkval            |008065a9|   B  |            OBJECT|00000002|     |.bss
+__flp               |008065ab|   B  |            OBJECT|00000002|     |.bss
+__bss_end           |008065ad|   B  |            NOTYPE|        |     |.bss
+__heap_start        |008065ad|   N  |            NOTYPE|        |     |.comment
+_end                |008065ad|   N  |            NOTYPE|        |     |.comment
+__eeprom_end        |00810000|   N  |            NOTYPE|        |     |.comment

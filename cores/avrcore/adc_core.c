@@ -72,10 +72,11 @@ int8_t ADC0_samplenum_index[2][8] =
   };
 
 
-#ifdef ADC_TYPE1 // reference set external to ADC peripheral
+#ifdef ADC_TYPE1 // reference set via the VREF peripheral
 void analogReference(uint8_t mode) 
  {
-      if (mode < 7 && mode != 4)
+    // bounds check  
+    if (mode < 7 && mode != 4)
         VREF.ADC0REF = (VREF.ADC0REF & ~(VREF_REFSEL_gm))|(mode);
  }
 #endif 
@@ -85,9 +86,10 @@ void analogReference(uint8_t mode)
 void analogReference(uint8_t mode) 
   {
     
+    // bound check
     if (mode < 8 && mode != 0x01 && mode != 0x03)
         ADC0.CTRLC = mode;
-    else ADC0.CTRLC = 0x00;      // default to VDD if invalid mode
+    
  }
 #endif 
 
@@ -108,10 +110,27 @@ void analogReference(uint8_t mode)
 // ADC_TYPE2 - AVR DU
 // ADC_TYPE3 - AVR EA, EB
 
+
+
+
+
 void init_ADC0(void) 
   {
     
-  
+    
+    // load some defaults
+    
+    adc_config.init_delay = 2;
+    adc_config.left_adjust = false;
+    adc_config.dif_mode = false;                                // single ended mode
+    adc_config.resolution = 10;
+    adc_config.mux_pos = 0x40;                                    // init MUXPOS to GND
+    adc_config.mux_neg = 0x40;
+    adc_config.samp_delay = 0x02;                               // arbitrary samp delay of 2 clock cycles
+    adc_config.init_delay = ADC_INITDLY_DLY64_gc;               // arbitrary init delay of 64 clocks
+    adc_config.reference = VDD;                  
+    adc_config.sample_number = 1;              
+
     #ifdef ADC_TYPE1
       init_ADC0_type1();
     #endif
@@ -129,7 +148,7 @@ void init_ADC0(void)
 
   /* 
   
-      Core analogRead function using 
+      Core analogRead function using proper adc core calls 
     
   */
 
@@ -215,6 +234,7 @@ void init_ADC0_type1(void)
    // set correct function pointers
    adc_read = analogRead_type1;
    adc_resolution = analogReadResolution1;
+
 
   } // end init_ADC0_type1
 #endif

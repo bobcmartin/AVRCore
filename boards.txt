@@ -246,7 +246,7 @@ avrdd.build.wireabr=
 ###### Bootloading parameters and fuses #######      
 
 ####################################################
-#   defualt safe setiings for the BOOT FUSES
+#   default safe setiings for the BOOT FUSES
 avrdd.bootloader.WDTCFG=0x00
 avrdd.bootloader.BODCFG=0x00
 avrdd.bootloader.OSCCFG=0x00
@@ -339,8 +339,13 @@ avrdd.build.millistimer=B2
 # attachInterrupt Mode                   
 avrdd.build.attachmode=-DCORE_ATTACH_ALL
 
-avrdd.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION0
-avrdd.build.flmapabr=.fld
+#avrdd.build.flmapopts=-DLOCK_FLMAP -DFLMAPSECTION0
+#avrdd.build.flmapabr=.fld
+
+avrdd.build.flmapopts=
+#avrdd.build.flmapabr=.ful
+
+
 
 #select ADC core driver 
 avrdd.build.adcgroup=-DADC_TYPE1

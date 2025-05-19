@@ -652,7 +652,7 @@ uint8_t digitalPinToTimerNow(uint8_t p);     // Returns the timer that is associ
 
 // These are in here so that - should it be necessary - library functions or user code could override these.
 void init_clock()     __attribute__((weak)); // this is called first, to initialize the system clock.
-void init_ADC0()      __attribute__((weak)); // this is called to initialize ADC0
+// void init_ADC0()      __attribute__((weak)); // this is called to initialize ADC0
 //   init_DAC0()                             // no _init_DAC0() - all that the core does is call DACReference!
 void init_TCA0()      __attribute__((weak)); // called by init_timers() - without this, pins that give PWM from TCA0 will not function.
 void init_TCA1()      __attribute__((weak)); // called by init_timers() - without this, pins that give PWM from TCA1 will not function, nor will the TCBs unless the clock source is changed.
