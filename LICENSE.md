@@ -1,4 +1,4 @@
-# DxCore, megaTinyCore, and ATTinyCore are released under the LGPL version 2.1
+# AVRCore is released under the LGPL version 2.1
 All files included with these package are covered by this unless
 otherwise noted. *Some included files and libraries are covered by other
 licenses.* Any file licensed under terms other than the LGPL 2.1 will have
