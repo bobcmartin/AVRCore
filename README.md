@@ -29,7 +29,7 @@ The intent is to have major updates on a quarterly cycle (3 months).  Latest cod
 
 No more than two versions will be available in the official install package.  This will help simplifying pull requests and issue reporting to three sources, last release, current release and master branch.
 
-## Current Status / Version Updates
+## Current Status / Version Updates 
 
 ### Release 1.1 - March 31 2025
 
