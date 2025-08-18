@@ -40,12 +40,21 @@ Boards supported in this release
 
 There will be mini updates 1.11, 1.12 along the way as I sort out and clean up the offical 1.1 release
 
+
+### Release 1.11
+* fixed NULL PTR bug in ADC subsystem
+* additional test code for ADC multisample
+
+
 ### Release 1.2 - Scheduled for July 1 2025 
 ## (delayed, update will update schedule soon)
 
 * upcoming features
 * add AVR64DU + USB support - this is a big one
 * refactor analogWrite - dedicate TC0 or TCA1 to basic PWM tasks including Servo library
+
+
+
 
 ## Validation / Test Code
 In addition to the examples already provided in the various subsystem menus there is a dedicated directory for all of the test/validation sketches used.
