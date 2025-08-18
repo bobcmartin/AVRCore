@@ -574,7 +574,7 @@ have ports shoulod have those Px constants defined as NOT_A_PORT. I think that w
 
 void init_ADC0(void); /* Called by init() after clock is set */
 #if defined(ADC1)
-  void init_ADC1(void); /* Never called automatically, but must be called manuaklkly in order to use the ADC1 functions. */
+  void init_ADC1(void); /* Never called automatically, but must be called manually in order to use the ADC1 functions. */
 #endif
 void init_clock(void);/* called by init() first  */
 void init_millis();   /* called by init() last   */
