@@ -41,7 +41,7 @@ Boards supported in this release
 There will be mini updates 1.11, 1.12 along the way as I sort out and clean up the offical 1.1 release
 
 
-### Release 1.11
+### Release 1.11 August 2025
 * fixed NULL PTR bug in ADC subsystem
 * additional test code for ADC multisample
 
