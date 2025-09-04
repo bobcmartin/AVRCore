@@ -1,7 +1,4 @@
-# DxCore Installation
-
-## Supported IDE versions
-DxCore requires a version of the IDE not earlier than 1.8.13 for best results, and not earlier than 1.6.5 for any functionality at all.
+# AVRCore Installation
 
 
 ## Boards Manager Installation 
