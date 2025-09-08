@@ -10,12 +10,12 @@
 				{
 					"name": "AVRCore (AVR DA/DB/DD)",
 					"architecture": "megaavr",
-					"version": "1.1",
+					"version": "1.11",
 					"category": "Contributed",
 					"url": "https://github.com/bobcmartin/AVRCore/releases/download/v1.1/AVRCore-1.1.zip",
-					"archiveFileName": "AVRCore-1.1.zip",
-					"checksum": "SHA-256:b6ea3e839dc6a448fb0676754ed70c31236502cb809d93ff7ad5753912e3442f",
-					"size":"3754321",
+					"archiveFileName": "AVRCore-1.11.zip",
+					"checksum": "SHA-256:5eaf6f7847245a6ba0efd4aba0a3742168265aa13bfbdbf376a26917caed15e8",
+					"size":"4139709",
 					"boards": [
 						{
 							"name": "AVR128DA48 Curiosity Nano"
