@@ -46,7 +46,7 @@ There will be mini updates 1.11, 1.12 along the way as I sort out and clean up t
 * additional test code for ADC multisample
 
 
-### Release 1.2 - Nov 2025
+### Release 1.20 - Nov 2025
 ## update to AVR GCC 15 and Device Pack support
 
 This release updates the GCC tool chain to AVR-GCC v15.1 which is also available as a download 
