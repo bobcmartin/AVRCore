@@ -46,12 +46,21 @@ There will be mini updates 1.11, 1.12 along the way as I sort out and clean up t
 * additional test code for ADC multisample
 
 
-### Release 1.2 - Scheduled for July 1 2025 
-## (delayed, update will update schedule soon)
+### Release 1.2 - Nov 2025
+## update to AVR GCC 15 and Device Pack support
 
-* upcoming features
-* add AVR64DU + USB support - this is a big one
-* refactor analogWrite - dedicate TC0 or TCA1 to basic PWM tasks including Servo library
+This release updates the GCC tool chain to AVR-GCC v15.1 which is also available as a download 
+package from the Microchip website 
+`https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-compilers`
+which is under the internal version of 4.0.0. This Arduino install package is merely renaming this
+package to be consitent with the GCC version not the internal Microchip version
+
+This compiler update adds
+
+*   native FLMAP support to the AVR DX/Ex family that provides a cleaner and faster
+    way to store read only data in flash. 
+*   introduces device pack suport which will allow easier updates to existing and new devices 
+    without having to reinstall a whole new GCC tool chain version
 
 
 
