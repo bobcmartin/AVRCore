@@ -10,7 +10,7 @@
 				{
 					"name": "AVRCore (AVR DA/DB/DD)",
 					"architecture": "megaavr",
-					"version": "1.11",
+					"version": "1.2",
 					"category": "Contributed",
 					"url": "https://github.com/bobcmartin/AVRCore/releases/download/v1.11/AVRCore-1.11.zip",
 					"archiveFileName": "AVRCore-1.11.zip",
