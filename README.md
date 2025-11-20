@@ -55,11 +55,11 @@ package from the Microchip website
 which is under the internal version of 4.0.0. This Arduino install package is merely renaming this
 package to be consistent with the GCC version not the internal Microchip version
 
-The 1.2x versions will add
+## The 1.2x versions will add
 
 *   native FLMAP support to the AVR DX/Ex family that provides a cleaner and faster
     way to store read only data in flash. 
-*   introduces device pack suport which will allow easier updates to existing and new devices 
+*   introduces device pack support which will allow easier updates to existing and new devices 
     without having to reinstall a whole new GCC tool chain version
 
 
