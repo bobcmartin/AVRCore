@@ -46,16 +46,16 @@ There will be mini updates 1.11, 1.12 along the way as I sort out and clean up t
 * additional test code for ADC multisample
 
 
-### Release 1.2 - Nov 2025
-## update to AVR GCC 15 and Device Pack support
+### Release 1.20 - Nov 2025
+## update to AVR GCC 15.1
 
 This release updates the GCC tool chain to AVR-GCC v15.1 which is also available as a download 
 package from the Microchip website 
 `https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-compilers`
 which is under the internal version of 4.0.0. This Arduino install package is merely renaming this
-package to be consitent with the GCC version not the internal Microchip version
+package to be consistent with the GCC version not the internal Microchip version
 
-This compiler update adds
+The 1.2x versions will add
 
 *   native FLMAP support to the AVR DX/Ex family that provides a cleaner and faster
     way to store read only data in flash. 
