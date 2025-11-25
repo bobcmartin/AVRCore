@@ -1,9 +1,16 @@
 #######################################
 #  AVRCore platform                   #
 #  DxCore platform definition         #
+#  AVRCore plaform                    #
 #                                     #
 #  github.com/SpenceKonde/DxCore      #
+#  github bobcmartin/AVRCore          #
 #######################################
+
+
+# version 1.3 - add device pack support for GCC 15.1
+
+
 
 name=AVRCore
 versionnum.major=1
